@@ -1,15 +1,16 @@
 * {
     box-sizing: border-box;
-  }
-  
-  body {
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+body {
     margin: 0;
-    background: #fafafa;
+    background: #FAF7EF;
     color: #262626;
-    font-family: BlinkMacSystemFont;
-  }
-  
-  .sidebar {
+    /*font-family: BlinkMacSystemFont;*/
+}
+
+.sidebar {
     position: fixed;
     top: 0;
     left: 0;
@@ -22,27 +23,27 @@
     background: #ffffff;
     border-right: 1px solid #dbdbdb;
     transition: 0.3s;
-  }
-  
-  .sidebar-header {
+}
+
+.sidebar-header {
     width: 100%;
     margin-bottom: 44px;
-  }
-  
-  .logo-icon {
+}
+
+.logo-icon {
     display: none;
     font-size: 28px;
     height: 35px;
     width: 51px;
     text-align: center;
-  }
-  
-  .logo-img {
+}
+
+.logo-img {
     margin-left: 14px;
     height: 32px;
-  }
-  
-  .sidebar button {
+}
+
+.sidebar button {
     height: 60px;
     background: transparent;
     border: 0;
@@ -50,9 +51,9 @@
     font-family: inherit;
     color: inherit;
     cursor: pointer;
-  }
-  
-  .sidebar button > span {
+}
+
+.sidebar button > span {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -60,56 +61,56 @@
     padding: 0 12px;
     border-radius: 24px;
     line-height: 1;
-  }
-  
-  .sidebar button:hover > span {
+}
+
+.sidebar button:hover > span {
     background: #f2f2f2;
-  }
-  
-  .sidebar button:hover > span :is(i, img) {
+}
+
+.sidebar button:hover > span :is(i, img) {
     scale: 1.05;
-  }
-  
-  .sidebar button > span > span {
+}
+
+.sidebar button > span > span {
     transition: 0.3s;
-  }
-  
-  @media (width < 580px) {
+}
+
+@media (width < 580px) {
     .logo-img {
-      display: none;
+        display: none;
     }
-  
+
     .logo-icon {
-      display: block;
+        display: block;
     }
-  
+
     .sidebar {
-      width: 72px;
+        width: 72px;
     }
-  
+
     .sidebar button > span {
-      width: 50px;
+        width: 50px;
     }
-  
+
     .sidebar button > span > span {
-      opacity: 0;
-      visibility: hidden;
+        opacity: 0;
+        visibility: hidden;
     }
-  }
-  
-  .sidebar button i {
+}
+
+.sidebar button i {
     position: relative;
     font-size: 28px;
     transition: 0.2s;
-  }
-  
-  .sidebar button img {
+}
+
+.sidebar button img {
     width: 28px;
     height: 28px;
     transition: 0.2s;
-  }
-  
-  .sidebar button i > span {
+}
+
+.sidebar button i > span {
     display: grid;
     place-items: center;
     height: 20px;
@@ -122,11 +123,11 @@
     background: #ff2f40;
     color: #f9f9f9;
     font-size: 12px;
-    font-family: BlinkMacSystemFont;
+    /*font-family: BlinkMacSystemFont;*/
     font-style: normal;
-  }
-  
-  .sidebar button i > em {
+}
+
+.sidebar button i > em {
     display: block;
     height: 10px;
     width: 10px;
@@ -138,24 +139,24 @@
     background: #ff2f40;
     color: #f9f9f9;
     font-size: 12px;
-    font-family: BlinkMacSystemFont;
+    /*font-family: BlinkMacSystemFont;*/
     font-style: normal;
-  }
-  
-  .sidebar button span {
+}
+
+.sidebar button span {
     font-size: 17px;
-  }
-  
-  .sidebar > nav {
+}
+
+.sidebar > nav {
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
     width: 100%;
-  }
-  
-  .sidebar > nav button:last-child {
+}
+
+.sidebar > nav button:last-child {
     margin-top: auto;
-  }
+}
 
 
 
