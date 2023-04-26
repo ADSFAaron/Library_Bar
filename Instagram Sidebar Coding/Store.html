@@ -2,317 +2,239 @@
 <html lang="zh-Hant-TW">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Store</title>
 
+  <link href="./style/bootstrap.min.css" rel="stylesheet">
+  <script src="./scripts/bootstrap.bundle.min.js"></script>
+  <script src="./scripts/popper.min.js"></script>
+  <script src="./scripts/bootstrap.min.js"></script>
+  <script src="./scripts/jquery-3.6.4.min.js"></script>
+  <script src="./scripts/store.js"></script>
 
-
-    <link href="./bootstrap.min.css" rel="stylesheet">
-    <script src="./bootstrap.bundle.min.js"></script>
-    <script src="./popper.min.js"></script>
-    <script src="./bootstrap.min.js"></script>
-    <script src="./jquery-3.6.4.min.js"></script>
-
-
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
-
-
-    <script>
-        window.onload = function () {
-            const carousel = document.querySelector('.recommend-carousel');
-            const carouselInner = document.querySelector('.recommend-carousel-inner');
-            const carouselItems = document.querySelectorAll('.recommend-carousel-item');
-            const height = carousel.clientHeight;
-
-            let index = 0;
-
-            function updateCarousel() {
-                carouselInner.style.transform = `translateY(-${height * index}px)`;
-            }
-
-            function nextSlide() {
-                index++;
-                if (index >= carouselItems.length) {
-                    index = 0;
-                }
-                updateCarousel();
-            }
-
-            function previousSlide() {
-                index--;
-                if (index < 0) {
-                    index = carouselItems.length - 1;
-                }
-                updateCarousel();
-            }
-
-            function setupCarousel() {
-                updateCarousel();
-                setInterval(nextSlide, 500);
-            }
-
-            setupCarousel();
-
-            // Handle touch events
-            let touchStartY = 0;
-            let touchEndY = 0;
-
-            carousel.addEventListener('touchstart', function (event) {
-                touchStartY = event.touches[0].clientY;
-            });
-
-            carousel.addEventListener('touchend', function (event) {
-                touchEndY = event.changedTouches[0].clientY;
-                if (touchEndY < touchStartY) {
-                    nextSlide();
-                } else if (touchEndY > touchStartY) {
-                    previousSlide();
-                }
-            });
-        }
-
-    </script>
-
-
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+  <link href="./style/style.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
 </head>
 
 <body>
+  <aside class="sidebar">
+    <nav>
+      <button>
+        <span>
+          <img class="logo-img" src="img/search_FILL0_wght400_GRAD0_opsz48.svg" alt="Search Logo" />
 
-    <!DOCTYPE html>
-    <html lang="en">
+          <span>Search</span>
+        </span>
+      </button>
 
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <link rel="stylesheet" href="style.css" />
-    </head>
+      <button>
+        <span>
+          <img class="logo-img" src="img/feed_FILL0_wght400_GRAD0_opsz48.svg" alt="Feed Logo" />
 
-    <body>
+          <span>Feed</span>
+        </span>
+      </button>
 
-        <aside class="sidebar">
-            <nav>
-                <button>
-                    <span>
-                        <img class="logo-img" src="img/search_FILL0_wght400_GRAD0_opsz48.svg" alt="Search Logo" />
+      <button>
+        <span>
+          <img class="logo-img" src="img/store_FILL0_wght400_GRAD0_opsz48.svg" alt="Feed Logo" />
+          <span>Store</span>
+        </span>
+      </button>
 
-                        <span>Search</span>
-                    </span>
-                </button>
+      <button>
+        <span>
+          <img class="logo-img" src="img/face_5_FILL0_wght400_GRAD0_opsz48.svg" alt="Feed Logo" />
 
-                <button>
-                    <span>
-                        <img class="logo-img" src="img/feed_FILL0_wght400_GRAD0_opsz48.svg" alt="Feed Logo" />
+          <span>Profile</span>
+        </span>
+      </button>
 
-                        <span>Feed</span>
-                    </span>
-                </button>
+      <button>
+        <span>
+          <img class="logo-img" src="img/book_FILL0_wght400_GRAD0_opsz48.svg" alt="Feed Logo" />
 
-                <button>
-                    <span>
-                        <img class="logo-img" src="img/store_FILL0_wght400_GRAD0_opsz48.svg" alt="Feed Logo" />
-                        <span>Store</span>
-                    </span>
-                </button>
+          <span>Bookshelf</span>
+        </span>
+      </button>
+      <button>
+        <span>
+          <img class="logo-img" src="img/tune_FILL0_wght400_GRAD0_opsz48.svg" alt="Setting Logo" />
 
-                <button>
-                    <span>
-                        <img class="logo-img" src="img/face_5_FILL0_wght400_GRAD0_opsz48.svg" alt="Feed Logo" />
-
-                        <span>Profile</span>
-                    </span>
-                </button>
-
-                <button>
-                    <span>
-                        <img class="logo-img" src="img/book_FILL0_wght400_GRAD0_opsz48.svg" alt="Feed Logo" />
-
-                        <span>Bookshelf</span>
-                    </span>
-                </button>
-                <button>
-                    <span>
-                        <img class="logo-img" src="img/tune_FILL0_wght400_GRAD0_opsz48.svg" alt="Setting Logo" />
-
-                        <span>Settings</span>
-                    </span>
-                </button>
-            </nav>
-        </aside>
+          <span>Settings</span>
+        </span>
+      </button>
+    </nav>
+  </aside>
 
 
-        <div class="container-body">
-            <div class="recommend-carousel">
-                <div class="recommend-carousel-inner">
-                    <div class="recommend-carousel-item active">
-                        <div class="recommend-carousel-item-content-head">
-                            <div class="recommend-carousel-item-content-img">
-                                <img src="./img/16_9.png">
-                            </div>
-                            <div class="recommend-carousel-item-content-title">
-                                標題標題
-                            </div>
-                            <div class="recommend-carousel-item-content">
-                                文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字
-                                <button class="button white-button">手賤?</button>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="recommend-carousel-item">
-                        <div class="recommend-carousel-item-content-head">
-                            <div class="recommend-carousel-item-content-img">
-                                <img src="./img/16_9.png">
-
-                            </div>
-                            <div class="recommend-carousel-item-content-title">
-                                標題標題
-                            </div>
-                            <div class="recommend-carousel-item-content">
-                                文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字
-                                <button class="button white-button">手賤?</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="recommend-carousel-item">
-                        <div class="recommend-carousel-item-content-head">
-                            <div class="recommend-carousel-item-content-img">
-                                <img src="./img/16_9.png">
-
-                            </div>
-                            <div class="recommend-carousel-item-content-title">
-                                標題標題
-                            </div>
-                            <div class="recommend-carousel-item-content">
-                                文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字
-                                <button class="button white-button">手賤?</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="recommend-carousel-item">
-                        <div class="recommend-carousel-item-content-head">
-                            <div class="recommend-carousel-item-content-img">
-                                <img src="./img/16_9.png">
-
-                            </div>
-                            <div class="recommend-carousel-item-content-title">
-                                標題標題
-                            </div>
-                            <div class="recommend-carousel-item-content">
-                                文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字
-                                <button class="button white-button">手賤?</button>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+  <div class="container-body">
+    <div class="recommend-carousel">
+      <div class="recommend-carousel-inner">
+        <div class="recommend-carousel-item active">
+          <div class="recommend-carousel-item-content-head">
+            <div class="recommend-carousel-item-content-img">
+              <img src="./img/16_9.png">
+            </div>
+            <div class="recommend-carousel-item-content-title">
+              標題標題
+            </div>
+            <div class="recommend-carousel-item-content">
+              <p>文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字</p>
+              <button class="button white-button">手賤?</button>
             </div>
 
-            <span>綜合排名</span>
-            <hr>
+          </div>
+        </div>
+        <div class="recommend-carousel-item">
+          <div class="recommend-carousel-item-content-head">
+            <div class="recommend-carousel-item-content-img">
+              <img src="./img/16_9.png">
 
-            <div class="row">
-                <div class="col-sm">
-                    <div class="store-ranking-content">
-                        <img src="./img/16_9.png">
-                        <span class="store-ranking-conten-span">新海城</span>
-                        <p>新海城</p>
-                    </div>
-                </div>
-                <div class="col-sm">
-                    <div class="store-ranking-content">
-                        <img src="./img/16_9.png">
-                        <span class="store-ranking-conten-span">新海城</span>
-                        <p>新海城</p>
-                    </div>
-                </div>
-                <div class="col-sm">
-                    <div class="store-ranking-content">
-                        <img src="./img/16_9.png">
-                        <span class="store-ranking-conten-span">新海城</span>
-                        <p>新海城</p>
-                    </div>
-                </div>
-                <div class="col-sm">
-                    <div class="store-ranking-content">
-                        <img src="./img/16_9.png">
-                        <span class="store-ranking-conten-span">新海城</span>
-                        <p>新海城</p>
-                    </div>
-                </div>
-                <div class="col-sm">
-                    <div class="store-ranking-content">
-                        <img src="./img/16_9.png">
-                        <span class="store-ranking-conten-span">新海城</span>
-                        <p>新海城</p>
-                    </div>
-                </div>
-                <div class="col-sm">
-                    <div class="store-ranking-content">
-                        <img src="./img/16_9.png">
-                        <span class="store-ranking-conten-span">新海城</span>
-                        <p>新海城</p>
-                    </div>
-                </div>
             </div>
+            <div class="recommend-carousel-item-content-title">
+              標題標題
+            </div>
+            <div class="recommend-carousel-item-content">
+              <p>文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字</p>
+              <button class="button white-button">手賤?</button>
+            </div>
+          </div>
+        </div>
+        <div class="recommend-carousel-item">
+          <div class="recommend-carousel-item-content-head">
+            <div class="recommend-carousel-item-content-img">
+              <img src="./img/16_9.png">
 
-            <span>分類</span>
-            <hr>
+            </div>
+            <div class="recommend-carousel-item-content-title">
+              標題標題
+            </div>
+            <div class="recommend-carousel-item-content">
+              <p>文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字</p>
+              <button class="button white-button">手賤?</button>
+            </div>
+          </div>
+        </div>
+        <div class="recommend-carousel-item">
+          <div class="recommend-carousel-item-content-head">
+            <div class="recommend-carousel-item-content-img">
+              <img src="./img/16_9.png">
 
-            <div class="row row-cols-6">
-                <div class="col">
-                    <button class="button bg-button">手賤?</button>
-                </div>
-                <div class="col">
-                    <button class="button bg-button">手賤?</button>
-                </div>
-                <div class="col">
-                    <button class="button bg-button">手賤?</button>
-                </div>
-                <div class="col">
-                    <button class="button bg-button">手賤?</button>
-                </div>
-                <div class="col">
-                    <button class="button bg-button">手賤?</button>
-                </div>
-                <div class="col">
-                    <button class="button bg-button">手賤?</button>
-                </div>
-                <div class="col">
-                    <button class="button bg-button">手賤?</button>
-                </div>
-                <div class="col">
-                    <button class="button bg-button">手賤?</button>
-                </div>
-                <div class="col">
-                    <button class="button bg-button">手賤?</button>
-                </div>
-                <div class="col">
-                    <button class="button bg-button">手賤?</button>
-                </div>
-                <div class="col">
-                    <button class="button bg-button">手賤?</button>
-                </div>
-                <div class="col">
-                    <button class="button bg-button">手賤?</button>
-                </div>
-              </div>
-
-
-
+            </div>
+            <div class="recommend-carousel-item-content-title">
+              標題標題
+            </div>
+            <div class="recommend-carousel-item-content">
+              <p>文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字</p>
+              <button class="button white-button">手賤?</button>
+            </div>
+          </div>
         </div>
 
+      </div>
+    </div>
 
-    </body>
+    <span>綜合排名</span>
+    <hr>
 
-    </html>
+    <div class="row">
+      <div class="col-sm">
+        <div class="store-ranking-content">
+          <img src="./img/16_9.png">
+          <span class="store-ranking-conten-span">新海城</span>
+          <p>新海城</p>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="store-ranking-content">
+          <img src="./img/16_9.png">
+          <span class="store-ranking-conten-span">新海城</span>
+          <p>新海城</p>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="store-ranking-content">
+          <img src="./img/16_9.png">
+          <span class="store-ranking-conten-span">新海城</span>
+          <p>新海城</p>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="store-ranking-content">
+          <img src="./img/16_9.png">
+          <span class="store-ranking-conten-span">新海城</span>
+          <p>新海城</p>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="store-ranking-content">
+          <img src="./img/16_9.png">
+          <span class="store-ranking-conten-span">新海城</span>
+          <p>新海城</p>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="store-ranking-content">
+          <img src="./img/16_9.png">
+          <span class="store-ranking-conten-span">新海城</span>
+          <p>新海城</p>
+        </div>
+      </div>
+    </div>
+
+    <span>分類</span>
+    <hr>
+
+    <div class="row row-cols-6">
+      <div class="col">
+        <button class="button bg-button">手賤?</button>
+      </div>
+      <div class="col">
+        <button class="button bg-button">手賤?</button>
+      </div>
+      <div class="col">
+        <button class="button bg-button">手賤?</button>
+      </div>
+      <div class="col">
+        <button class="button bg-button">手賤?</button>
+      </div>
+      <div class="col">
+        <button class="button bg-button">手賤?</button>
+      </div>
+      <div class="col">
+        <button class="button bg-button">手賤?</button>
+      </div>
+      <div class="col">
+        <button class="button bg-button">手賤?</button>
+      </div>
+      <div class="col">
+        <button class="button bg-button">手賤?</button>
+      </div>
+      <div class="col">
+        <button class="button bg-button">手賤?</button>
+      </div>
+      <div class="col">
+        <button class="button bg-button">手賤?</button>
+      </div>
+      <div class="col">
+        <button class="button bg-button">手賤?</button>
+      </div>
+      <div class="col">
+        <button class="button bg-button">手賤?</button>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
 </body>
 
 </html>
+
