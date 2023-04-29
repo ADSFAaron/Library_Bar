@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <!--  Meta data  -->
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!--  網頁標題  -->
+    <title>Library Feed</title>
+
+    <!-- 載入 lib -->
+    <script src="./scripts/bootstrap.bundle.min.js"></script>
+    <script src="./scripts/popper.min.js"></script>
+    <script src="./scripts/bootstrap.min.js"></script>
+    <script src="./scripts/jquery-3.6.4.min.js"></script>
+    <script src="./scripts/store.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
+    <link href="./style/bootstrap.min.css" rel="stylesheet">
+    <link href="./style/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+
+</head>
+
+<body>
+
+<aside class="sidebar">
+    <!--    <header class="sidebar-header">-->
+    <!--        <img class="logo-img" src="img/LibraryBarLogo.jpg" alt="Library Bar Logo"/>-->
+    <!--        <i class="logo-icon uil uil-instagram"></i>-->
+    <!--    </header>-->
+    <nav>
+
+        <button>
+        <span>
+          <img class="logo-img" src="img/search_FILL0_wght400_GRAD0_opsz48.svg" alt="Search Logo"/>
+              <span>Search</span>
+          </span>
+        </button>
+
+        <button>
+        <span>
+          <img class="logo-img" src="img/feed_FILL0_wght400_GRAD0_opsz48.svg" alt="Feed Logo"/>
+
+          <span>Feed</span>
+        </span>
+        </button>
+
+        <button onclick="location.href='./Store.html'">
+        <span>
+          <img class="logo-img" src="img/store_FILL0_wght400_GRAD0_opsz48.svg" alt="Feed Logo"/>
+
+          <span>Store</span>
+        </span>
+        </button>
+
+        <button>
+        <span>
+          <img class="logo-img" src="img/face_5_FILL0_wght400_GRAD0_opsz48.svg" alt="Feed Logo"/>
+
+          <span>Profile</span>
+        </span>
+        </button>
+
+        <button>
+          <span>
+            <img class="logo-img" src="img/book_FILL0_wght400_GRAD0_opsz48.svg" alt="Feed Logo"/>
+
+          <span>Bookshelf</span>
+        </span>
+        </button>
+
+        <!--        <button>-->
+        <!--          <span>-->
+        <!--            <i class="uil uil-location-arrow">-->
+        <!--              <span>12</span>-->
+        <!--            </i>-->
+        <!--            <span>Bookshelf</span>-->
+        <!--          </span>-->
+        <!--        </button>-->
+
+        <!--        <button>-->
+        <!--          <span>-->
+        <!--            <i class="uil uil-heart">-->
+        <!--              <em></em>-->
+        <!--            </i>-->
+        <!--            <span>Notifications</span>-->
+        <!--          </span>-->
+        <!--        </button>-->
+
+        <!--        <button>-->
+        <!--          <span>-->
+        <!--            <i class="uil uil-plus-circle"> </i>-->
+        <!--            <span>Create</span>-->
+        <!--          </span>-->
+        <!--        </button>-->
+
+
+        <button>
+          <span>
+            <img class="logo-img" src="img/tune_FILL0_wght400_GRAD0_opsz48.svg" alt="Setting Logo"/>
+
+            <span>Settings</span>
+          </span>
+        </button>
+    </nav>
+</aside>
+
+<!-- 網頁右側內容 -->
+<div class="main">
+    <div class="flex flex-col space-y-4">
+        <div class="flex bg-[#D8CCAE] rounded-lg p-4 max-h-96">
+
+            <div class="w-3/4 p-4 grid grid-cols-1 gap-4 content-normal">
+                <div class="text-2xl font-semibold">繼續閱讀：鈴芽之旅</div>
+                <div class="text-lg">150 / 324 頁</div>
+                <div class="bg-gradient-to-b from-gray-500 to-[#D8CCAE] inline-block text-transparent bg-clip-text text-base">
+                    十七歲的少女鈴芽和阿姨住在九州靜謐的海港城鎮。某天上學途中，鈴芽與一名俊美的青年擦身而過。想要前往「廢墟」的青年，說著他在「尋找門」。鈴芽追著他，來到了山中的廢墟，在那裡的只有一扇陳舊的白門，
+                </div>
+
+                <div class="bg-white hover:bg-slate-200 w-48 h-12 py-2 px-4 rounded-full text-center text-lg flex items-center justify-center cursor-pointer select-none">
+                    閱讀
+                </div>
+            </div>
+
+            <div class="w-1/4 content-center flex items-center justify-center my-2">
+                <img class="object-contain rounded-md w-full md:w-4/5" src="img/Book_template.jpg" alt="Book"/>
+            </div>
+
+        </div>
+
+        <!-- Feed Content -->
+        <div class="flex flex-col bg-white rounded-3xl p-12 gap-4">
+
+            <div class="flex flex-row gap-4">
+                <div class="flex-none">
+                    <div class="rounded-full w-16 h-16 bg-gray-300"></div>
+                </div>
+                <div class="flex-1 w-64 ">
+                    <div class="grid grid-cols-1 col-start-2 place-items-start content-end items-center m-2">
+                        <div class="text-lg">
+                            王曉明
+                        </div>
+                        <div class="text-sm">
+                            2021/10/10
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="flex flex-row gap-4">
+                <div class="ml-20 flex-1 w-64 text-base col-span-2">
+                    王曉明看了 鈴芽之旅 已觀看 50 %
+                </div>
+            </div>
+            <div class="bg-[#7EB3BF] rounded-lg col-span-2 grid grid-cols-3 gap-4 px-6 py-4 ml-20">
+                <img class="object-contain rounded-lg m-4" src="img/Book_template.jpg" alt="Book"/>
+                <div class="grid grid-rows-4 col-span-2 text-white m-4 gap-2">
+                    <div class="text-lg">
+                        鈴芽之旅
+                    </div>
+                    <a class="text-lg">
+                        新海 誠
+                    </a>
+                    <div class="text-sm">
+                        從遇見尋找著「門」的青年那一刻起，踏上不可思議的神祕旅程。
+                    </div>
+                    <div class=" grid place-items-end">
+                        <div class="bg-white hover:bg-slate-200 w-24 h-12 py-2 px-4 rounded-full text-black text-center text-base flex items-center justify-center cursor-pointer select-none">
+                            閱讀
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-row gap-4 ml-20">
+                <div class="flex flex-row gap-4">
+                    <span class="material-symbols-outlined">
+                    favorite
+                    </span>
+                    <div class="text-base">
+                        10
+                    </div>
+                </div>
+                <div class="flex flex-row gap-4">
+                    <span class="material-symbols-outlined">
+                    chat
+                    </span>
+                    <div class="text-base">
+                        10
+                    </div>
+                </div>
+                <div class="flex flex-row gap-4">
+                    <span class="material-symbols-outlined">
+                    timelapse
+                    </span>
+                    <div class="text-base">
+                        20 : 30
+                        <span class="text-xs">秒</span>
+                    </div>
+                </div>
+                <div class="flex flex-row gap-4 ml-4">
+                    <div class="rounded-full w-6 h-6 bg-gray-300"></div>
+                    <div class="text-sm">
+                        李大華 : 哇~ 太酷了吧！
+                    </div>
+                    <span class="material-symbols-outlined h-3 w-3">
+                    reply
+                    </span>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+</body>
+
+</html>
