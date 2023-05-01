@@ -1,29 +1,23 @@
 /* 隱藏浮動頁面，直到按下按鈕才顯示 */
-#book_detail-page {
+#page_book_detail {
     position: absolute;
     display: none;
-    /* position: fixed; */
-    left: 700px;
-    top: 25px;
-    /* transform: translate(-50%, -50%); */
-    width: 60%;
-    height: 50%;
+
     border-radius: 20px;
-    /* background-color: #D8CCAE; */
-    /* padding: 20px; */
+
     box-shadow: 0 0 40px rgba(0.2, 0.2, 0.2, 0.2);
-    z-index: 2; 
-}
-/* 為浮動頁面的標題樣式設定 */
-#book_detail-page h2 {
-    margin-left: 0;
-    margin-top: 0;
-    margin-right: 0;
-    margin-bottom: 0;
+    background-color: #fffff2;;
+    z-index: 2;
+    text-align: justify;
+    
+    margin-left: 260px;
+    margin-top: -1125px;
+    width: auto;
+    height: auto;
 }
 /* 為關閉按鈕樣式設定 */
-#btn-close-reading_page {
-    position: absolute;
+#btn_close_book_detail {
+    position: relative;
     margin-top: 25px;
     margin-left: 25px;
     font-size: 50px;

@@ -10,7 +10,7 @@ window.onload = function () {
     let index = 0;
 
     function updateCarousel() {
-        carouselInner.style.transform = `translateY(-${height * index}px)`;
+        carouselInner.style.transform = `translateY(-${height * index * 1.265}px)`;
     }
 
     function nextSlide() {
@@ -31,7 +31,7 @@ window.onload = function () {
 
     function setupCarousel() {
         updateCarousel();
-        setInterval(nextSlide, 6000);
+        setInterval(nextSlide, 3000);
     }
 
     setupCarousel();
