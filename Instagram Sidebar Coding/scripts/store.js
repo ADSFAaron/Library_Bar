@@ -31,7 +31,7 @@ window.onload = function () {
 
     function setupCarousel() {
         updateCarousel();
-        setInterval(nextSlide, 500);
+        setInterval(nextSlide, 6000);
     }
 
     setupCarousel();
@@ -46,9 +46,10 @@ window.onload = function () {
 
     carousel.addEventListener('touchend', function (event) {
         touchEndY = event.changedTouches[0].clientY;
-        if (touchEndY < touchStartY) {
+        if (touchEndY < touchStartY){
             nextSlide();
-        } else if (touchEndY > touchStartY) {
+        }
+        else if (touchEndY > touchStartY){
             previousSlide();
         }
     });
