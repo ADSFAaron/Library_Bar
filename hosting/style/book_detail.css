@@ -1,0 +1,26 @@
+/* 隱藏浮動頁面，直到按下按鈕才顯示 */
+#page_book_detail {
+    position: absolute;
+    display: none;
+
+    border-radius: 20px;
+
+    box-shadow: 0 0 40px rgba(0.2, 0.2, 0.2, 0.2);
+    background-color: #fffff2;;
+    z-index: 2;
+    text-align: justify;
+    
+    margin-left: 260px;
+    margin-top: -1125px;
+    width: auto;
+    height: auto;
+}
+/* 為關閉按鈕樣式設定 */
+#btn_close_book_detail {
+    position: relative;
+    margin-top: 25px;
+    margin-left: 25px;
+    font-size: 50px;
+    cursor: pointer;
+    z-index: 2;
+}
