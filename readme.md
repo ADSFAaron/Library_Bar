@@ -1,11 +1,13 @@
 # Library Bar
 
 > npm 不能跑 裝 node.js
+> 
+> NPM 套件如果有跳遺失 記得安裝
 
 原先資料說明在 [Hackmd](https://hackmd.io/@sGEp9JWcRCW0QY1r-j9kRg/H1Axjeckh)
 這邊只是說明如何執行
 
-## 檔案位置
+## 檔案位置 (在 hosting)
 * dist 編譯完檔案
 * img 圖片檔
 * pages 網頁檔案所在處
@@ -14,7 +16,8 @@
 * style 放 CSS
 * vite.condfig.ts 放網頁路徑修改
 
-
+-----
+### !!! 下方執行的路徑 都要切到 hosting !!!
 ## 執行測試
 `npm run dev`
 
