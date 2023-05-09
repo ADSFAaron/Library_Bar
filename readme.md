@@ -13,7 +13,7 @@
 
 
 -----
-### !!! 以下執行的路徑，都要切到`hosting`資料夾路徑底下!!!
+### :warning::warning::warning: 以下執行的路徑，都要切到`hosting`資料夾路徑底下 :warning::warning::warning:
 
 > 使用`PowerShell`或`cmd(命令提示字元)`進行`npm`指令，如果`npm`指令不能跑，請安裝[node.js](https://nodejs.org/zh-tw/download)
 > 
@@ -55,30 +55,35 @@ npm run preview
 
 確認編譯後的網頁沒問題之後，按`Ctrl + C`退出
 
-## 開始部署
-#### 安裝 firebase CLI
-```
-npm install -g firebase-tools
-```
+<details>
+  <summary>
+    開始部署(沒事不要部署)
+  </summary>
+    #### 安裝 firebase CLI (第一次啟動就好)
+    ```
+    npm install -g firebase-tools
+    ```
 
-#### 啟動登錄過程
-```
-firebase login
-```
+    #### 啟動登錄過程 (第一次啟動就好)
+    ```
+    firebase login
+    ```
 
-#### 啟用webframeworks
-```
-firebase experiments:enable webframeworks
-```
+    #### 啟用 webframeworks (第一次啟動就好)
+    ```
+    firebase experiments:enable webframeworks
+    ```
 
-#### 部屬到 firebase
-```
-firebase deploy
-```
+    #### 部屬到 firebase 部署到 hosting
+    ```
+    firebase deploy
+    ```
 
-#### 查看已部署的網頁
-* [https://librarybar-56ac7.web.app](https://librarybar-56ac7.web.app)
-* [https://librarybar-56ac7.web.app/pages/feed](https://librarybar-56ac7.web.app/pages/feed)
-* [https://librarybar-56ac7.web.app/pages/readbook](https://librarybar-56ac7.web.app/pages/readbook)
-* [https://librarybar-56ac7.web.app/pages/store](https://librarybar-56ac7.web.app/pages/store)
-* [https://librarybar-56ac7.web.app/pages/template](https://librarybar-56ac7.web.app/pages/template)
+    #### 查看已部署的網頁
+    * [https://librarybar-56ac7.web.app](https://librarybar-56ac7.web.app)
+    * [https://librarybar-56ac7.web.app/pages/feed](https://librarybar-56ac7.web.app/pages/feed)
+    * [https://librarybar-56ac7.web.app/pages/readbook](https://librarybar-56ac7.web.app/pages/readbook)
+    * [https://librarybar-56ac7.web.app/pages/store](https://librarybar-56ac7.web.app/pages/store)
+    * [https://librarybar-56ac7.web.app/pages/template](https://librarybar-56ac7.web.app/pages/template)
+  
+</details>
