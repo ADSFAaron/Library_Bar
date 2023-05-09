@@ -15,14 +15,15 @@
 -----
 ## :warning::warning::warning: 以下執行的路徑，都要切到 `hosting` 資料夾路徑底下 :warning::warning::warning:
 
-> 使用 `PowerShell` 或 `cmd (命令提示字元)` 進行 `npm` 指令，如果 `npm` 指令不能跑，請先安裝 [node.js](https://nodejs.org/zh-tw/download)，版本請先根據自己的合適作業系統做選擇。
+> 使用 `PowerShell` 或 `cmd (命令提示字元)` 進行 `npm` 指令，如果 `npm` 指令不能跑，請先安裝 [node.js](https://nodejs.org/zh-tw/download)，版本的部分請先根據自己的作業系統做合適的選擇。
 > 
 > 如果 `npm` 套件有跳遺失，請記得補裝套件。
 
 <details>
   <summary>基本步驟</summary>
 
-  #### 切換路徑到 `hosting` 資料夾路徑底下，使用 `PowerShell` 或 `cmd (命令提示字元)`，:warning:注意：根據自己的路徑做切換，以下是範例。
+  #### 使用 `PowerShell` 或 `cmd (命令提示字元)` 輸入切換路徑指令到 `hosting` 資料夾路徑底下。
+  #### :warning:注意：根據自己的路徑做切換，以下是範例。
   ```txt
   cd C:\Users\user\Desktop\Library_Bar\hosting
   ```
@@ -36,7 +37,7 @@
   ```txt
   npm run dev
   ``` 
-  按下 `o` 鍵查看首頁有沒有正常顯示，確認完網頁都正常值後按下按下 `q` 鍵離開。
+  按下 `o` 鍵查看首頁有沒有正常顯示，確認完網頁都正常後按下按下 `q` 鍵離開。
   * press r to restart the server
   * press u to show server url
   * press o to open in browser
@@ -48,7 +49,7 @@
   npm run build
   ```
 
-  #### 測試編譯完檔案
+  #### 測試編譯完的檔案
   ```txt
   npm run preview
   ``` 
