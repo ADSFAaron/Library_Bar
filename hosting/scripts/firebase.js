@@ -147,7 +147,7 @@ function loadData() {
 
         const store_ranking_div = document.getElementById('store_ranking');
         if(store_ranking_div){
-            const store_rank_num = 12;   //排幾個
+            const store_rank_num = 6;   //排幾個
             const randomNumbers = generateRandomNumbers(store_rank_num, 0, allbooks.length - 1);   //隨機取亂數不重複
             let div_str = "";
 
