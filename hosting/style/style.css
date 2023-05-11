@@ -367,4 +367,367 @@ body {
     margin-left: 50px;
     margin-top: 50px;
     font-size: 50px;
+}* {
+    box-sizing: border-box;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+body {
+    margin: 0;
+    background: #FAF7EF;
+    color: #262626;
+    /*font-family: BlinkMacSystemFont;*/
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 250px;
+    height: 100%;
+    padding: 40px 10px 30px 10px;
+    background: #ffffff;
+    border-right: 1px solid #dbdbdb;
+    transition: 0.3s;
+}
+
+.sidebar-header {
+    width: 100%;
+    margin-bottom: 44px;
+}
+
+.logo-icon {
+    display: none;
+    font-size: 28px;
+    height: 35px;
+    width: 51px;
+    text-align: center;
+}
+
+.logo-img {
+    margin-left: 14px;
+    height: 32px;
+}
+
+.sidebar button {
+    height: 60px;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    font-family: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
+.sidebar button > span {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 48px;
+    padding: 0 12px;
+    border-radius: 24px;
+    line-height: 1;
+}
+
+.sidebar button:hover > span {
+    background: #f2f2f2;
+}
+
+.sidebar button:hover > span :is(i, img) {
+    scale: 1.05;
+}
+
+.sidebar button > span > span {
+    transition: 0.3s;
+}
+
+@media (width < 580px) {
+    .logo-img {
+        display: none;
+    }
+
+    .logo-icon {
+        display: block;
+    }
+
+    .sidebar {
+        width: 72px;
+    }
+
+    .sidebar button > span {
+        width: 50px;
+    }
+
+    .sidebar button > span > span {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.sidebar button i {
+    position: relative;
+    font-size: 28px;
+    transition: 0.2s;
+}
+
+.sidebar button img {
+    width: 28px;
+    height: 28px;
+    transition: 0.2s;
+}
+
+.sidebar button i > span {
+    display: grid;
+    place-items: center;
+    height: 20px;
+    padding: 0 4px;
+    border-radius: 10px;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    border: 1px solid #ffffff;
+    background: #ff2f40;
+    color: #f9f9f9;
+    font-size: 12px;
+    /*font-family: BlinkMacSystemFont;*/
+    font-style: normal;
+}
+
+.sidebar button i > em {
+    display: block;
+    height: 10px;
+    width: 10px;
+    border-radius: 10px;
+    position: absolute;
+    top: 2px;
+    right: -1px;
+    border: 1px solid #ffffff;
+    background: #ff2f40;
+    color: #f9f9f9;
+    font-size: 12px;
+    /*font-family: BlinkMacSystemFont;*/
+    font-style: normal;
+}
+
+.sidebar button span {
+    font-size: 17px;
+}
+
+.sidebar > nav {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.sidebar > nav button:last-child {
+    margin-top: auto;
+}
+
+
+
+
+.button {
+    border: none;
+    color: white;
+    padding: 16px 64px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 45px;
+  }
+  
+  .white-button {
+    background-color: white; 
+    color: black; 
+    border: 2px solid white;
+  }
+  
+  .white-button:hover {
+    background-color: rgb(242, 242, 242);
+    color: white;
+  }
+
+  .bg-button {
+    background-color: white; 
+    color: black; 
+    border: 2px solid rgb(216, 203, 174);
+    border-radius: 15px;
+  }
+  
+  .bg-button:hover {
+    background-color: rgb(216, 203, 174);
+    color: white;
+    border-radius: 15px;
+  }
+  
+
+
+
+.container-body {
+    margin-left: 250px;
+    padding: 25px;
+}
+
+.container-body > hr {
+    height: 2px;
+    border: none;
+    background-color: rgb(216, 203, 174);
+}
+
+.container-body > span {
+    font-size: 25px;
+    color: rgb(181, 98, 23);
+}
+
+
+@media (width < 580px) {
+
+    .container-body {
+        margin-left: 72px;
+    }
+}
+
+/* 推薦書籍 主框架 調滑動間距 配合主框架*/
+.recommend-carousel {
+    height: 500px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+/* 推薦書籍 次框架 調滑動間距 配合次框架*/
+.recommend-carousel-inner {
+    display: flex;
+    flex-direction: column;
+    height: 1200px;
+    transition: transform 0.5s ease;
+}
+
+/* 推薦書籍 書跟書間距 */
+.recommend-carousel-item {
+    height: 70%;
+}
+
+
+/* 推薦書籍 圖片風格、大小 調高度沒啥用 */
+.recommend-carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5%;
+}
+
+/* 推薦書籍 標題 主框架 */
+.recommend-carousel-item-content-head {
+    position: relative;
+    height: 80%;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* 推薦書籍 標題 次框架 */
+.recommend-carousel-item-content-title {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    padding-left: 80%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #F2F2F2;
+    z-index: -1;
+}
+
+/* 推薦書籍 右邊標題 */
+.recommend-carousel-item-content-title > p{
+    font-size: 24px;
+    color: #7A7A7A;
+}
+
+/* 推薦書籍 內容框架 */
+.recommend-carousel-item-content {
+    bottom: 0;
+    width: 100%;
+    height: 80%;
+    border-radius: 20px;
+    padding-left: 35%;
+    padding-right: 5%;
+    padding-top: 1%;
+    background: #D8CCAE;
+    position: absolute;
+    flex-direction: column;
+
+
+}
+
+/* 推薦書籍 圖片位置 */
+.recommend-carousel-item-content-img {
+    position: relative;
+    top: 10%;
+    margin-top: 0px;
+    margin-bottom: 60px;
+    margin-left: 60px;
+    margin-right: 70%;
+    z-index: 1;
+}
+
+/* 推薦書籍 書名 */
+.recommend-carousel-item-content > p1{
+    font-weight: bold;
+    font-size: 40px;
+    white-space:nowrap;
+}
+
+/* 推薦書籍 作者、星數 */
+.recommend-carousel-item-content > p2{
+    font-size: 16px;
+}
+
+/* 推薦書籍 內容 */
+.recommend-carousel-item-content > p{
+    font-size: 24px;
+    text-align:justify;
+}
+
+.store-ranking-content{
+    margin: 15%;
+    flex-direction: column;
+}
+.store-ranking-content > p{
+    font-size: 15px;
+    color: rgb(126, 126, 126);
+
+}
+/* 綜合排名 圖片風格 大小 */
+.store-ranking-content > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5%;
+}
+
+.store-ranking-conten-span {
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+}
+
+.main {
+    margin-left: 250px; /* Same as the width of the sidenav */
+    font-size: 28px;    /* Increased text to enable scrolling */
+    padding: 2em 1em 0;
+}
+
+/* icon位置及大小 */
+.recommend-carousel-item-content > .material-symbols-outlined{
+    margin-left: 50px;
+    margin-top: 50px;
+    font-size: 50px;
 }
