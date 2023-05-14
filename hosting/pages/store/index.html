@@ -2,6 +2,830 @@
 <html lang="zh-Hant-TW">
 
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Store</title>
+
+    <link href="../../style/bootstrap.min.css" rel="stylesheet">
+    <script type="module" src="../../scripts/bootstrap.bundle.min.js"></script>
+    <script type="module" src="../../scripts/popper.min.js"></script>
+    <script type="module" src="../../scripts/bootstrap.min.js"></script>
+    <script type="module" src="../../scripts/jquery-3.6.4.min.js"></script>
+    <script type="module" src="../../scripts/store.js"></script>
+
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <link href="../../style/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+
+    <!-- import lib -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-firestore.js"></script>
+    <script src="../../scripts/firebase.js"></script>
+
+    <aside class="sidebar">
+        <nav>
+            <button>
+                <span>
+                    <img class="logo-img" src="../../img/search_FILL0_wght400_GRAD0_opsz48.svg" alt="Search Logo" />
+
+                    <span>Search</span>
+                </span>
+            </button>
+
+            <button onclick="location.href='./feed'">
+                <span>
+                    <img class="logo-img" src="../../img/feed_FILL0_wght400_GRAD0_opsz48.svg" alt="Feed Logo" />
+
+                    <span>Feed</span>
+                </span>
+            </button>
+
+            <button onclick="location.href='#'">
+                <span>
+                    <img class="logo-img" src="../../img/store_FILL0_wght400_GRAD0_opsz48.svg" alt="Feed Logo" />
+                    <span>Store</span>
+                </span>
+            </button>
+
+            <button>
+                <span>
+                    <img class="logo-img" src="../../img/face_5_FILL0_wght400_GRAD0_opsz48.svg" alt="Feed Logo" />
+
+                    <span>Profile</span>
+                </span>
+            </button>
+            <button>
+                <span>
+                    <img class="logo-img" src="../../img/book_FILL0_wght400_GRAD0_opsz48.svg" alt="Feed Logo" />
+
+                    <span>Bookshelf</span>
+                </span>
+            </button>
+            <button>
+                <span>
+                    <img class="logo-img" src="../../img/tune_FILL0_wght400_GRAD0_opsz48.svg" alt="Setting Logo" />
+                    <span>Settings</span>
+                </span>
+            </button>
+        </nav>
+    </aside>
+
+
+    <div class="container-body">
+        <div class="recommend-carousel">
+            <div class="recommend-carousel-inner" id="recommend_book">
+
+                <div class="recommend-carousel-item active">
+                    <div class="recommend-carousel-item-content-head">
+                        <div class="recommend-carousel-item-content-img">
+                            <img src="https://cdn.shopify.com/s/files/1/0613/7030/2681/products/212206efffac7d87f8d2a9dc50933b82_473x637.png?v=1672105246">
+                        </div>
+                        <div class="recommend-carousel-item-content-title">
+                            <p>推薦書籍</p>
+                        </div>
+                        <div class="recommend-carousel-item-content">
+                            <p1>鈴芽之旅</p1>
+                            <u>新海城</u>
+                            <p2> ☆ 4.0</p2>
+                            <div class="bg-gradient-to-b from-gray-500 to-[#D8CCAE] inline-block text-transparent bg-clip-text text-base">
+                                <p>從遇見尋找著「門」的青年那一刻起，踏上不可思議的神祕旅程。十七歲的少女鈴芽和阿姨住在九州靜謐的海港城鎮。某天上學途中，鈴芽與一名俊美的青年擦身而過。想要前往「廢墟」的青年，說著他在「尋找門」。鈴芽追著他，來到了山中的廢墟，在那裡的只有一扇陳舊的白門，彷彿遭逢崩壞，而被獨自遺留下來。彷彿被某種東西吸引般，鈴芽朝著門，伸出手──</p>
+                            </div>
+                            <button onclick="location.href='./readbook'" class="button white-button">閱讀</button>
+                            <button class="material-symbols-outlined">bookmark</button>
+                            <button class="material-symbols-outlined" onclick=" window.open('https://www.instagram.com/','_blank')">share </button>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+            </div>
+        </div>
+
+        <span>綜合排名</span>
+        <hr>
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 row-cols-xl-6" id="store_ranking">
+            <div class="col">
+                <div id="btn_reading_book_detail" class="store-ranking-content">
+                    <img
+                        src="https://cdn.shopify.com/s/files/1/0613/7030/2681/products/212206efffac7d87f8d2a9dc50933b82_473x637.png?v=1672105246">
+                    <span class="store-ranking-conten-span">鈴芽之旅</span>
+                    <p>新海城</p>
+                </div>
+            </div>
+            
+            <div class="col">
+                <div id="btn_reading_book_detail" class="store-ranking-content">
+                    <img
+                        src="https://cdn.shopify.com/s/files/1/0613/7030/2681/products/212206efffac7d87f8d2a9dc50933b82_473x637.png?v=1672105246">
+                    <span class="store-ranking-conten-span">鈴芽之旅</span>
+                    <p>新海城</p>
+                </div>
+            </div>
+            <div class="col">
+                <div id="btn_reading_book_detail" class="store-ranking-content">
+                    <img
+                        src="https://cdn.shopify.com/s/files/1/0613/7030/2681/products/212206efffac7d87f8d2a9dc50933b82_473x637.png?v=1672105246">
+                    <span class="store-ranking-conten-span">鈴芽之旅</span>
+                    <p>新海城</p>
+                </div>
+            </div>
+            <div class="col">
+                <div id="btn_reading_book_detail" class="store-ranking-content">
+                    <img
+                        src="https://cdn.shopify.com/s/files/1/0613/7030/2681/products/212206efffac7d87f8d2a9dc50933b82_473x637.png?v=1672105246">
+                    <span class="store-ranking-conten-span">鈴芽之旅</span>
+                    <p>新海城</p>
+                </div>
+            </div>
+            <div class="col">
+                <div id="btn_reading_book_detail" class="store-ranking-content">
+                    <img
+                        src="https://cdn.shopify.com/s/files/1/0613/7030/2681/products/212206efffac7d87f8d2a9dc50933b82_473x637.png?v=1672105246">
+                    <span class="store-ranking-conten-span">鈴芽之旅</span>
+                    <p>新海城</p>
+                </div>
+            </div>
+            <div class="col">
+                <div id="btn_reading_book_detail" class="store-ranking-content">
+                    <img
+                        src="https://cdn.shopify.com/s/files/1/0613/7030/2681/products/212206efffac7d87f8d2a9dc50933b82_473x637.png?v=1672105246">
+                    <span class="store-ranking-conten-span">鈴芽之旅</span>
+                    <p>新海城</p>
+                </div>
+            </div>
+        </div>
+
+        <span>分類</span>
+        <hr>
+
+        <div class="row row-cols-2 row-cols-lg-4 row-cols-xl-6" id="store_class">
+            <div class="col">
+                <button class="button bg-button">人文社會</button>
+            </div>
+            <div class="col">
+                <button class="button bg-button">文學小說</button>
+            </div>
+            <div class="col">
+                <button class="button bg-button">語言學習</button>
+            </div>
+            <div class="col">
+                <button class="button bg-button">財經商管</button>
+            </div>
+            <div class="col">
+                <button class="button bg-button">科學科普</button>
+            </div>
+            <div class="col">
+                <button class="button bg-button">電腦資訊</button>
+            </div>
+            <div class="col">
+                <button class="button bg-button">宗教心靈</button>
+            </div>
+            <div class="col">
+                <button class="button bg-button">醫藥養生</button>
+            </div>
+            <div class="col">
+                <button class="button bg-button">藝術設計</button>
+            </div>
+            <div class="col">
+                <button class="button bg-button">休閒生活</button>
+            </div>
+            <div class="col">
+                <button class="button bg-button">親子童書</button>
+            </div>
+            <div class="col">
+                <button class="button bg-button">考試證照</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- book_detail -->
+    <div id="page_book_detail">
+        <!-- load css -->
+        <link href="../../style/book_detail.css" rel="stylesheet">
+        <!-- button關閉按鈕 -->
+        <button class="material-symbols-outlined" id="btn_close_book_detail">close</button>
+        <!-- load script -->
+        <script type="module" src="../../scripts/book_detail.js"></script>
+
+
+        <div class="flex flex-col relative">
+
+            <div class="basis-[25px]"></div>
+
+            <div class="flex flex-col relative basis-[800px] mt-[1px] mx-0 mb-0">
+
+                <div class="flex items-center relative">
+                    <div class="flex flex-col relative basis-[300px]">
+                        <img src="https://cdn.shopify.com/s/files/1/0613/7030/2681/products/212206efffac7d87f8d2a9dc50933b82_473x637.png?v=1672105246"
+                            alt="alt text"
+                            class="rounded-3xl w-full h-auto aspect-[0.69] align-top object-cover object-[center_center] relative mt-0 mx-0 mb-3" />
+                    </div>
+                    <div class="basis-[119px]"></div>
+                    <div class="flex flex-col relative basis-[455px] mt-[23px] mx-0 mb-0">
+                        <div class="flex flex-col w-[72%] relative mt-0 mr-[28%] mb-0 ml-[0.22%]">
+                            <h5
+                                class="lg:text-[12px] lg:text-left flex items-center font-medium text-[16px] leading-[1.37] font-NotoSans text-black tracking-[0px] relative min-h-[44px]">
+                                ★愛藏版限定特典！完整收藏所有感動。
+                            </h5>
+                            <div class="flex flex-col relative mt-1 mx-0.5 mb-0">
+                                <h2
+                                    class="lg:text-[20px] lg:text-left sm:text-[16px] flex items-center font-medium text-[24px] leading-[1.37] font-NotoSans text-[rgb(13,5,5)] tracking-[0px] relative grow">
+                                    鈴芽之旅</h2>
+                                <h5
+                                    class="lg:text-[12px] lg:text-left flex items-center font-medium text-[16px] leading-[1.37] font-NotoSans text-black tracking-[0px] w-[35px] h-6 absolute top-0.5 right-[118px]">
+                                    ☆ 4.0</h5>
+                            </div>
+                            <p class="flex items-center w-[44.04%] relative mt-[7px] mr-[55.35%] mb-0 ml-[0.61%]">
+                                <span class="font-normal text-xs font-NotoSans text-[rgb(13,5,5)] tracking-[0px]">
+                                    <span
+                                        class="not-italic text-[1em] leading-[1.33] font-NotoSans text-[rgb(13,5,5)] tracking-[0px]">
+                                        作者：
+                                    </span>
+                                    <span
+                                        class="not-italic text-[1em] leading-[1.33] font-NotoSans text-[rgb(13,5,5)] underline tracking-[0px]">
+                                        新海誠<br />
+                                    </span>
+                                    <span
+                                        class="not-italic text-[1em] leading-[1.33] font-NotoSans text-[rgb(13,5,5)] tracking-[0px]">
+                                        出版社：
+                                    </span>
+                                    <span
+                                        class="not-italic text-[1em] leading-[1.33] font-NotoSans text-[rgb(13,5,5)] underline tracking-[0px]">
+                                        台灣角川<br />
+                                    </span>
+                                    <span
+                                        class="not-italic text-[1em] leading-[1.33] font-NotoSans text-[rgb(13,5,5)] tracking-[0px]">
+                                        頁數：324頁<br />
+                                        出版日期：2023/04/28<br />
+                                        語言：繁體中文
+                                    </span>
+                                </span>
+                            </p>
+                        </div>
+                        <div class="flex flex-col relative mt-[3px] mx-0 mb-0">
+                            <div class="flex items-center gap-x-[17px] relative">
+                                <div
+                                    class="flex flex-col rounded-xl outline outline-[rgb(136,185,41)] outline-1 outline-offset-[-1px] relative basis-[140px]">
+                                    <div
+                                        class="lg:mt-[3px] lg:mr-px lg:mb-[3px] lg:ml-2 xs:mt-[3px] xs:mr-px xs:mb-[3px] xs:ml-1 flex items-center gap-x-[18px] relative grow mt-[3px] mr-px mb-[3px] ml-[13px]">
+                                        <div class="flex flex-col relative basis-[38px]">
+                                            <img src="https://upload.wikimedia.org/wikipedia/zh/3/36/BooksComTW.svg"
+                                                alt="alt text"
+                                                class="w-[38px] h-auto aspect-[1.19] align-top object-cover object-[center_center] relative min-w-[38px] my-[5px] mx-0" />
+                                        </div>
+                                        <p type='button'
+                                            class="flex items-center font-normal text-xs font-NotoSans text-black tracking-[0px] relative grow basis-[70px] min-h-[42px]"
+                                            onclick="window.open('https://www.books.com.tw/products/E050151170','_blank')">
+                                            博客來購買
+                                        </p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="flex flex-col rounded-xl outline outline-[rgb(136,185,41)] outline-1 outline-offset-[-1px] relative basis-[141px]">
+                                    <div
+                                        class="lg:mt-[3px] lg:mr-px lg:mb-[3px] lg:ml-2 xs:mt-[3px] xs:mr-px xs:mb-[3px] xs:ml-1 flex items-center gap-x-[18px] relative grow mt-[3px] mr-px mb-[3px] ml-[13px]">
+                                        <div class="flex flex-col relative basis-[38px]">
+                                            <img src="https://upload.wikimedia.org/wikipedia/zh/3/36/BooksComTW.svg"
+                                                alt="alt text"
+                                                class="w-[38px] h-auto aspect-[1.19] align-top object-cover object-[center_center] relative min-w-[38px] my-[5px] mx-0" />
+                                        </div>
+                                        <p type='button'
+                                            class="flex items-center font-normal text-xs font-NotoSans text-black tracking-[0px] relative grow basis-[71px] min-h-[42px]"
+                                            onclick="window.open('https://appapi-ebook.books.com.tw/V1.7/CMSAPIApp/item/E050151170/trial','_blank')">
+                                            博客來試閱
+                                        </p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="flex flex-col rounded-xl outline outline-[rgb(6,89,169)] outline-1 outline-offset-[-1px] relative basis-[140px]">
+                                    <div
+                                        class="lg:mt-[3px] lg:mr-px lg:mb-[3px] lg:ml-2 xs:mt-[3px] xs:mr-px xs:mb-[3px] xs:ml-1 flex items-center gap-x-[18px] relative grow mt-[3px] mr-px mb-[3px] ml-[13px]">
+                                        <div class="flex flex-col relative basis-[38px]">
+                                            <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRZ-_80ooT6lZx_PFQkRe_sCHqclcxVzUDPmgiWvCWc-qFMN2pB"
+                                                alt="alt text"
+                                                class="w-[38px] h-auto aspect-[1.19] align-top object-cover object-[center_center] relative min-w-[38px] my-[5px] mx-0" />
+                                        </div>
+                                        <p type='button'
+                                            class="flex items-center font-normal text-xs font-NotoSans text-black tracking-[0px] relative grow basis-[70px] min-h-[42px]"
+                                            onclick="window.open('https://ebook.hyread.com.tw/bookDetail.jsp?id=318141','_blank')">
+                                            Hyread<br />
+                                            線上購買
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-x-[17px] relative mt-3.5 mx-0 mb-0">
+                                <div
+                                    class="flex flex-col rounded-xl outline outline-[rgb(183,64,83)] outline-1 outline-offset-[-1px] relative basis-[140px]">
+                                    <div
+                                        class="lg:mt-[3px] lg:mr-px lg:mb-[3px] lg:ml-2 xs:mt-[3px] xs:mr-px xs:mb-[3px] xs:ml-1 flex items-center gap-x-[18px] relative grow mt-[3px] mr-px mb-[3px] ml-[13px]">
+                                        <div class="flex flex-col relative basis-[38px]">
+                                            <img src="https://image.winudf.com/v2/image1/Y29tLmVzbGl0ZS5oa19pY29uXzE2NzA0MjI0MzJfMDI4/icon.png?w=160&fakeurl=1"
+                                                alt="alt text"
+                                                class="w-[38px] h-auto aspect-[1.19] align-top object-cover object-[center_center] relative min-w-[38px] my-[5px] mx-0" />
+                                        </div>
+                                        <p type='button'
+                                            class="flex items-center font-normal text-xs font-NotoSans text-black tracking-[0px] relative grow basis-[70px] min-h-[42px]"
+                                            onclick="window.open('https://www.eslite.com/product/1001125122682321683001','_blank')">
+                                            誠品購買
+                                        </p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="flex flex-col rounded-xl outline outline-[rgb(183,64,83)] outline-1 outline-offset-[-1px] relative basis-[141px]">
+                                    <div
+                                        class="lg:mt-[3px] lg:mr-px lg:mb-[3px] lg:ml-2 xs:mt-[3px] xs:mr-px xs:mb-[3px] xs:ml-1 flex items-center gap-x-[18px] relative grow mt-[3px] mr-px mb-[3px] ml-[13px]">
+                                        <div class="flex flex-col relative basis-[38px]">
+                                            <img src="https://cdn.readmoo.com/images/store/logo_icon.png" alt="alt text"
+                                                class="w-[38px] h-auto aspect-[1.19] align-top object-cover object-[center_center] relative min-w-[38px] my-[5px] mx-0" />
+                                        </div>
+                                        <p type='button'
+                                            class="flex items-center font-normal text-xs font-NotoSans text-black tracking-[0px] relative grow basis-[71px] min-h-[42px]"
+                                            onclick="window.open('https://readmoo.com/book/210259597000101','_blank')">
+                                            Readmoo<br />
+                                            讀墨購買
+                                        </p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="flex flex-col rounded-xl outline outline-[rgb(49,90,146)] outline-1 outline-offset-[-1px] relative basis-[140px]">
+                                    <div
+                                        class="lg:mt-[3px] lg:mr-px lg:mb-[3px] lg:ml-2 xs:mt-[3px] xs:mr-px xs:mb-[3px] xs:ml-1 flex items-center gap-x-[18px] relative grow mt-[3px] mr-px mb-[3px] ml-[13px]">
+                                        <div class="flex flex-col relative basis-[38px]">
+                                            <img src="https://play-lh.googleusercontent.com/X9aRgbqPyesfHbZGLW3NbSKH4k42lO6SFiEbhJXX_VpzasAz8m_lchwK74NH0Ethwvc"
+                                                alt="alt text"
+                                                class="w-[38px] h-auto aspect-[1.19] align-top object-cover object-[center_center] relative min-w-[38px] my-[5px] mx-0" />
+                                        </div>
+                                        <p type='button'
+                                            class="flex items-center font-normal text-xs font-NotoSans text-black tracking-[0px] relative grow basis-[70px] min-h-[42px]"
+                                            onclick="window.open('https://www.pubu.com.tw/ebook/350965','_blank')">
+                                            Pubu購買
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-x-[17px] relative mt-3.5 mx-0 mb-0">
+                                <div
+                                    class="flex flex-col rounded-xl outline outline-[rgb(183,64,83)] outline-1 outline-offset-[-1px] relative basis-[140px]">
+                                    <div
+                                        class="lg:mt-[3px] lg:mr-px lg:mb-[3px] lg:ml-2 xs:mt-[3px] xs:mr-px xs:mb-[3px] xs:ml-1 flex items-center gap-x-[18px] relative grow mt-[3px] mr-px mb-[3px] ml-[13px]">
+                                        <div class="flex flex-col relative basis-[38px]">
+                                            <img src="https://play-lh.googleusercontent.com/X9aRgbqPyesfHbZGLW3NbSKH4k42lO6SFiEbhJXX_VpzasAz8m_lchwK74NH0Ethwvc"
+                                                alt="alt text"
+                                                class="w-[38px] h-auto aspect-[1.19] align-top object-cover object-[center_center] relative min-w-[38px] my-[5px] mx-0" />
+                                        </div>
+                                        <p type='button'
+                                            class="flex items-center font-normal text-xs font-NotoSans text-black tracking-[0px] relative grow basis-[70px] min-h-[42px]"
+                                            onclick="window.open('https://www.pubu.com.tw/online-reader/350965','_blank')">
+                                            Pubu試閱
+                                        </p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="flex flex-col rounded-xl outline outline-[rgb(183,64,83)] outline-1 outline-offset-[-1px] relative basis-[141px]">
+                                    <div
+                                        class="lg:mt-[3px] lg:mr-px lg:mb-[3px] lg:ml-2 xs:mt-[3px] xs:mr-px xs:mb-[3px] xs:ml-1 flex items-center gap-x-[18px] relative grow mt-[3px] mr-px mb-[3px] ml-[13px]">
+                                        <div class="flex flex-col relative basis-[38px]">
+                                            <img src="https://yt3.googleusercontent.com/f1o_xzn4Hm8I_0ZtWI8VtY7Oxm2eu4VDnxnzXNKQVVbcjwhrbE5iCO-06FKBEjhiHhk4ppCGkA=s900-c-k-c0x00ffffff-no-rj"
+                                                alt="alt text"
+                                                class="w-[38px] h-auto aspect-[1.19] align-top object-cover object-[center_center] relative min-w-[38px] my-[5px] mx-0" />
+                                        </div>
+                                        <p type='button'
+                                            class="flex items-center font-normal text-xs font-NotoSans text-black tracking-[0px] relative grow basis-[71px] min-h-[42px]"
+                                            onclick="window.open('https://www.kingstone.com.tw/basic/2018612158741','_blank')">
+                                            金石堂購買
+                                        </p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="flex flex-col rounded-xl outline outline-[rgb(49,90,146)] outline-1 outline-offset-[-1px] relative basis-[140px]">
+                                    <div
+                                        class="lg:mt-[3px] lg:mr-px lg:mb-[3px] lg:ml-2 xs:mt-[3px] xs:mr-px xs:mb-[3px] xs:ml-1 flex items-center gap-x-[18px] relative grow mt-[3px] mr-px mb-[3px] ml-[13px]">
+                                        <div class="flex flex-col relative basis-[38px]">
+                                            <img src="https://svgsilh.com/svg/2379396.svg" alt="alt text"
+                                                class="w-[38px] h-auto aspect-[1.19] align-top object-cover object-[center_center] relative min-w-[38px] my-[5px] mx-0" />
+                                        </div>
+                                        <button type='button'
+                                            class="flex items-center font-normal text-xs font-NotoSans text-black tracking-[0px] relative grow basis-[70px] min-h-[42px]">
+                                            Bookshelf
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="lg:mt-px lg:mr-0 lg:mb-0 lg:ml-0 md:mt-px md:mr-0 md:mb-0 md:ml-4 sm:mt-px sm:mr-0 sm:mb-0 sm:ml-3 tn:mt-px tn:mr-0 tn:mb-0 tn:ml-2 flex flex-col relative mt-px mr-0 mb-0 ml-6">
+                    <h2
+                        class="lg:text-[20px] lg:text-left lg:my-0 lg:mx-2 sm:text-[16px] xs:my-0 xs:mx-1 flex items-center font-normal text-[24px] leading-[1.37] font-NotoSans text-[rgb(180,100,25)] tracking-[0px] relative my-0 mx-[13px]">
+                        內容簡介
+                    </h2>
+                    <hr size="1" class="bg-[rgb(180,100,25)] h-px relative mt-2 mx-2 mb-2" />
+                    <br />
+                </div>
+                <h2
+                    class="lg:text-[20px] lg:text-left sm:text-[16px] flex items-center font-normal text-[24px] leading-[1.37] font-NotoSans text-black tracking-[0px] w-[70%] relative mt-[35px] mr-[32%] mb-0 mx-auto">
+                    從遇見尋找著「門」的青年那一刻起，<br />
+                    踏上不可思議的神祕旅程。<br />
+                    十七歲的少女鈴芽和阿姨住在九州靜謐的海港城鎮。<br />
+                    某天上學途中，鈴芽與一名俊美的青年擦身而過。<br />
+                    想要前往「廢墟」的青年，說著他在「尋找門」。<br />
+                    鈴芽追著他，來到了山中的廢墟，<br />
+                    在那裡的只有一扇陳舊的白門，<br />
+                    彷彿遭逢崩壞，而被獨自遺留下來。<br />
+                    彷彿被某種東西吸引般，鈴芽朝著門<br />
+                    伸出手──<br /><br />
+
+                    本書特色<br /><br />
+
+                    　　★日本首周票房突破18億，同名電影原著小說。<br /><br />
+                    　　★新海誠導演親自執筆，繼《你的名字》、《天氣之子》後最新力作。<br /><br />
+                </h2>
+
+
+                <h2
+                    class="lg:text-[20px] lg:text-left lg:my-0 lg:mx-2 sm:text-[16px] xs:my-0 xs:mx-1 flex items-center font-normal text-[24px] leading-[1.37] font-NotoSans text-[rgb(180,100,25)] tracking-[0px] relative my-0 mx-[13px]">
+                    內容簡介
+                </h2>
+                <hr size="1" class="bg-[rgb(180,100,25)] h-px relative mt-2 mx-2 mb-2" />
+                <br />
+                <h2
+                    class="lg:text-[20px] lg:text-left sm:text-[16px] flex items-center font-normal text-[24px] leading-[1.37] font-NotoSans text-black tracking-[0px] w-[70%] relative mt-[35px] mr-[32%] mb-0 mx-auto">
+                    作者介紹<br />
+                    作者簡介<br />
+                    新海誠<br />
+                    　　
+
+                    一九七三年出生於長野縣。動畫導演。二〇〇二年，以幾乎是個人獨立製作的短篇動畫《星之聲》獲得矚目。之後陸續發表《雲之彼端，約定的地方》、《秒速5公分》、《追逐繁星的孩子》、《言葉之庭》等作品，獲得國內外多座獎項，二〇一六年上映的動畫《你的名字。》更成為創紀錄的賣座電影。二〇一九年上映的長篇動畫《天氣之子》也蔚為話題。將自己導演作品改寫為小說的《小說‧秒速5公分》、《小說
+                    言葉之庭》、《你的名字。》、《天氣之子》等作品，同樣獲得極高評價。本書為二〇二二年上映的長篇動畫《鈴芽之旅》原著小說。<br />
+                    譯者簡介<br />
+                    黃涓芳<br />
+                    　　 畢業於台灣大學外文系及語言所，曾任創意編輯、英語研究員等職。目前為英、日文自由譯者。<br /><br />
+                </h2>
+                <div
+                    class="lg:mt-px lg:mr-0 lg:mb-0 lg:ml-0 md:mt-px md:mr-0 md:mb-0 md:ml-4 sm:mt-px sm:mr-0 sm:mb-0 sm:ml-3 tn:mt-px tn:mr-0 tn:mb-0 tn:ml-2 flex flex-col relative mt-px mr-0 mb-0 ml-6">
+                    <h2
+                        class="lg:text-[20px] lg:text-left lg:my-0 lg:mx-2 sm:text-[16px] xs:my-0 xs:mx-1 flex items-center font-normal text-[24px] leading-[1.37] font-NotoSans text-[rgb(180,100,25)] tracking-[0px] relative my-0 mx-[13px]">
+                        內容簡介
+                    </h2>
+                    <hr size="1" class="bg-[rgb(180,100,25)] h-px relative mt-2 mx-2 mb-2" />
+                    <br />
+                </div>
+                <h2
+                    class="lg:text-[20px] lg:text-left sm:text-[16px] flex items-center font-normal text-[24px] leading-[1.37] font-NotoSans text-black tracking-[0px] w-[70%] relative mt-[35px] mr-[32%] mb-0 mx-auto">
+                    詳細資料<br />
+                    ISBN：9786263522770<br />
+                    EISBN：9786263522787<br />
+                    規格：普通級 / 初版<br />
+                    出版地：台灣<br />
+                    檔案格式：EPUB流動版型<br />
+                    建議閱讀裝置：手機、平板<br />
+                    TTS語音朗讀功能：無<br />
+                    檔案大小：8.6MB<br />
+                    本書分類：文學小說> 翻譯文學> 日本文學<br /><br />
+                </h2>
+                <h2
+                    class="lg:text-[20px] lg:text-left sm:text-[16px] flex items-center font-normal text-[24px] leading-[1.37] font-NotoSans text-[rgb(182,99,23)] tracking-[0px] w-[20.41%] relative mt-0 mr-[78.16%] mb-0 ml-[1.43%]">
+                    心得評論
+                </h2>
+                <hr size="1" class="bg-[rgb(180,100,25)] h-px relative mt-2 mx-2 mb-2" />
+                <div
+                    class="lg:mt-[38px] lg:mx-2 lg:mb-0 xs:mt-[38px] xs:mx-1 xs:mb-0 flex items-center relative mt-[38px] mx-3 mb-0">
+                    <div class="flex flex-col relative basis-12">
+                        <img src="https://storage.googleapis.com/pxcode-pro/644d82b70649a2000afe5491/assets/3570c0bcdd22aa187eaff62a49767c61.png"
+                            alt="alt text"
+                            class="w-12 h-auto aspect-[1] align-top object-cover object-[center_center] absolute min-w-[48px] mt-[-415px] mx-100 mb-14" />
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLdaS-fSJV4jEcvzjHnaURc4EdI-ji5rPGfQ&usqp=CAU"
+                            alt="alt text"
+                            class="w-12 h-auto aspect-[1] align-top object-cover object-[center_center] absolute min-w-[48px] mt-[-285px] mx-100 mb-14" />
+                        <img src="https://img2.wallspic.com/previews/8/4/6/4/6/164648/164648-xiao_mao-ke_ai-mao_ke-zhong_xiao_xing_mao-er_duo-x750.jpg"
+                            alt="alt text"
+                            class="w-12 h-auto aspect-[1] align-top object-cover object-[center_center] absolute min-w-[48px] mt-[-155px] mx-100 mb-14" />
+                        <img src="https://memeprod.ap-south-1.linodeobjects.com/user-template/081bd1f45e4b2fc9838f0faf9589e931.png"
+                            alt="alt text"
+                            class="w-12 h-auto aspect-[1] align-top object-cover object-[center_center] absolute min-w-[48px] mt-[-25px] mx-100 mb-14" />
+                        <img src="https://www.upmedia.mg/upload/article/20221228114545859566.jpg" alt="alt text"
+                            class="w-12 h-auto aspect-[1] align-top object-cover object-[center_center] absolute min-w-[48px] mt-[130px] mx-100 mb-14" />
+                        <img src="https://pic.pimg.tw/bisco/110865860393.jpg" alt="alt text"
+                            class="w-12 h-auto aspect-[1] align-top object-cover object-[center_center] absolute min-w-[48px] mt-[285px] mx-100 mb-14" />
+                    </div>
+
+                    <div class="basis-[22px]"></div>
+                    <div class="flex flex-col relative basis-[597px]">
+                        <div class="flex items-center relative">
+                            <div class="flex flex-col relative basis-[167px]">
+                                <h3
+                                    class="md:text-[16px] md:text-left flex items-center font-normal text-[21px] leading-[1.38] font-NotoSans text-black tracking-[0px] relative">
+                                    h75311418
+                                </h3>
+                                <div
+                                    class="flex items-center font-normal text-[14px] leading-[1.35] font-NotoSans text-black tracking-[0px] relative mt-1 mx-0 mb-0">
+                                    2023/04/09 AM:09:34
+                                </div>
+                            </div>
+                            <div class="flex flex-col relative flex-[0_1_63.54px]">
+                                <div class="flex items-center relative grow mt-[17.6px] mr-0 mb-[11.4px] ml-[6.54px]">
+                                    <div class="flex flex-col relative shrink-0 basis-[41px] min-w-[41px]">
+                                        <h5
+                                            class="lg:text-[12px] lg:text-left flex items-center font-medium text-[16px] leading-[1.37] font-NotoSans text-black tracking-[0px] relative grow mt-0 mr-0 mb-0 ml-1.5">
+                                            ★★★★★ 5.0
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3
+                            class="md:text-[16px] md:text-left flex items-center font-normal text-[21px] leading-[1.38] font-NotoSans text-black tracking-[0px] relative mt-[26px] mx-0 mb-0">
+                            鈴芽那個芹澤是因為女主需要交通工具就多遠都載去，車壞了也不生氣<br /><br />
+                        </h3>
+                        <div class="flex items-center relative">
+                            <div class="flex flex-col relative basis-[167px]">
+                                <h3
+                                    class="md:text-[16px] md:text-left flex items-center font-normal text-[21px] leading-[1.38] font-NotoSans text-black tracking-[0px] relative">
+                                    bye2007
+                                </h3>
+                                <div
+                                    class="flex items-center font-normal text-[14px] leading-[1.35] font-NotoSans text-black tracking-[0px] relative mt-1 mx-0 mb-0">
+                                    2023/04/12 PM:22:03
+                                </div>
+                            </div>
+                            <div class="flex flex-col relative flex-[0_1_63.54px]">
+                                <div class="flex items-center relative grow mt-[17.6px] mr-0 mb-[11.4px] ml-[6.54px]">
+                                    <div class="flex flex-col relative shrink-0 basis-[41px] min-w-[41px]">
+                                        <h5
+                                            class="lg:text-[12px] lg:text-left flex items-center font-medium text-[16px] leading-[1.37] font-NotoSans text-black tracking-[0px] relative grow mt-0 mr-0 mb-0 ml-1.5">
+                                            ★★★★★ 5.0
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3
+                            class="md:text-[16px] md:text-left flex items-center font-normal text-[21px] leading-[1.38] font-NotoSans text-black tracking-[0px] relative mt-[26px] mx-0 mb-0">
+                            鈴芽之旅的主軸就不是愛情，而是災後的振作啊<br /><br />
+                        </h3>
+                        <div class="flex items-center relative">
+                            <div class="flex flex-col relative basis-[167px]">
+                                <h3
+                                    class="md:text-[16px] md:text-left flex items-center font-normal text-[21px] leading-[1.38] font-NotoSans text-black tracking-[0px] relative">
+                                    benrun
+                                </h3>
+                                <div
+                                    class="flex items-center font-normal text-[14px] leading-[1.35] font-NotoSans text-black tracking-[0px] relative mt-1 mx-0 mb-0">
+                                    2023/04/15 PM:14:39
+                                </div>
+                            </div>
+                            <div class="flex flex-col relative flex-[0_1_63.54px]">
+                                <div class="flex items-center relative grow mt-[17.6px] mr-0 mb-[11.4px] ml-[6.54px]">
+                                    <div class="flex flex-col relative shrink-0 basis-[41px] min-w-[41px]">
+                                        <h5
+                                            class="lg:text-[12px] lg:text-left flex items-center font-medium text-[16px] leading-[1.37] font-NotoSans text-black tracking-[0px] relative grow mt-0 mr-0 mb-0 ml-1.5">
+                                            ★★★★★ 5.0
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3
+                            class="md:text-[16px] md:text-left flex items-center font-normal text-[21px] leading-[1.38] font-NotoSans text-black tracking-[0px] relative mt-[26px] mx-0 mb-0">
+                            這部很棒，但感情線好像又覺得你的名字做的比較好~<br /><br />
+                        </h3>
+                        <div class="flex items-center relative">
+                            <div class="flex flex-col relative basis-[167px]">
+                                <h3
+                                    class="md:text-[16px] md:text-left flex items-center font-normal text-[21px] leading-[1.38] font-NotoSans text-black tracking-[0px] relative">
+                                    s210125
+                                </h3>
+                                <div
+                                    class="flex items-center font-normal text-[14px] leading-[1.35] font-NotoSans text-black tracking-[0px] relative mt-1 mx-0 mb-0">
+                                    2023/04/17 AM:11:28
+                                </div>
+                            </div>
+                            <div class="flex flex-col relative flex-[0_1_63.54px]">
+                                <div class="flex items-center relative grow mt-[17.6px] mr-0 mb-[11.4px] ml-[6.54px]">
+                                    <div class="flex flex-col relative shrink-0 basis-[41px] min-w-[41px]">
+                                        <h5
+                                            class="lg:text-[12px] lg:text-left flex items-center font-medium text-[16px] leading-[1.37] font-NotoSans text-black tracking-[0px] relative grow mt-0 mr-0 mb-0 ml-1.5">
+                                            ★★★★☆ 4.1
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3
+                            class="md:text-[16px] md:text-left flex items-center font-normal text-[21px] leading-[1.38] font-NotoSans text-black tracking-[0px] relative mt-[26px] mx-0 mb-0">
+                            本來新海誠好像是要放雙女主，但商業考量，不過是爆料的，如果是這樣，那感情線比較突兀就有解釋了<br /><br />
+                        </h3>
+                        <div class="flex items-center relative">
+                            <div class="flex flex-col relative basis-[167px]">
+                                <h3
+                                    class="md:text-[16px] md:text-left flex items-center font-normal text-[21px] leading-[1.38] font-NotoSans text-black tracking-[0px] relative">
+                                    denny0000002
+                                </h3>
+                                <div
+                                    class="flex items-center font-normal text-[14px] leading-[1.35] font-NotoSans text-black tracking-[0px] relative mt-1 mx-0 mb-0">
+                                    2023/04/20 PM:13:41
+                                </div>
+                            </div>
+                            <div class="flex flex-col relative flex-[0_1_63.54px]">
+                                <div class="flex items-center relative grow mt-[17.6px] mr-0 mb-[11.4px] ml-[6.54px]">
+                                    <div class="flex flex-col relative shrink-0 basis-[41px] min-w-[41px]">
+                                        <h5
+                                            class="lg:text-[12px] lg:text-left flex items-center font-medium text-[16px] leading-[1.37] font-NotoSans text-black tracking-[0px] relative grow mt-0 mr-0 mb-0 ml-1.5">
+                                            ★★★ 3.0
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3
+                            class="md:text-[16px] md:text-left flex items-center font-normal text-[21px] leading-[1.38] font-NotoSans text-black tracking-[0px] relative mt-[26px] mx-0 mb-0">
+                            我覺得多了～觀眾看不懂就批評是不好的，同樣的觀眾接受度低就說觀眾是智障其實更噁心..<br /><br />
+                        </h3>
+                        <div class="flex items-center relative">
+                            <div class="flex flex-col relative basis-[167px]">
+                                <h3
+                                    class="md:text-[16px] md:text-left flex items-center font-normal text-[21px] leading-[1.38] font-NotoSans text-black tracking-[0px] relative">
+                                    zx0158
+                                </h3>
+                                <div
+                                    class="flex items-center font-normal text-[14px] leading-[1.35] font-NotoSans text-black tracking-[0px] relative mt-1 mx-0 mb-0">
+                                    2023/04/23 PM:15:25
+                                </div>
+                            </div>
+                            <div class="flex flex-col relative flex-[0_1_63.54px]">
+                                <div class="flex items-center relative grow mt-[17.6px] mr-0 mb-[11.4px] ml-[6.54px]">
+                                    <div class="flex flex-col relative shrink-0 basis-[41px] min-w-[41px]">
+                                        <h5
+                                            class="lg:text-[12px] lg:text-left flex items-center font-medium text-[16px] leading-[1.37] font-NotoSans text-black tracking-[0px] relative grow mt-0 mr-0 mb-0 ml-1.5">
+                                            ★★★★★ 5.0
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3
+                            class="md:text-[16px] md:text-left flex items-center font-normal text-[21px] leading-[1.38] font-NotoSans text-black tracking-[0px] relative mt-[26px] mx-0 mb-0">
+                            我也覺得這部好看，但別的觀眾看不明白你就說是他理解力低下，你怎麼不說是電影表達不足以讓人很好理解？<br /><br />
+                        </h3>
+                    </div>
+                </div>
+                <div class="flex flex-col relative mt-[34.33px] mx-0 mb-0">
+                    <h2
+                        class="lg:text-[20px] lg:text-left sm:text-[16px] flex items-center font-normal text-[24px] leading-[1.37] font-NotoSans text-[rgb(182,99,23)] tracking-[0px] w-[17.33%] relative mt-0 mr-[81.4%] mb-0 ml-[1.27%]">
+                        相關書籍
+                    </h2>
+                    <hr size="1" class="bg-[rgb(180,100,25)] h-px relative mt-2 mx-2 mb-2" />
+                </div>
+                <div
+                    class="lg:flex-wrap lg:justify-start lg:content-start lg:gap-y-4 lg:gap-x-4 md:w-[87.97%] sm:w-[90.7%] xs:w-[92.85%] xxs:w-[94.54%] tn:w-[95.85%] flex items-center gap-x-5 w-[84.57%] relative mt-8 mx-auto mb-0">
+                    <div
+                        class="lg:flex-[0_0_calc(1/2_*_100%_-_16px_/_2)] lg:min-w-[unset] md:flex-[0_0_calc(1/1_*_100%_-_0px_/_1)] flex flex-col relative grow basis-[217px]">
+                        <div class="flex flex-col relative grow">
+                            <div class="flex flex-col relative">
+                                <img src="https://cdn.shopify.com/s/files/1/0613/7030/2681/products/212206efffac7d87f8d2a9dc50933b82_473x637.png?v=1672105246"
+                                    alt="alt text"
+                                    class="rounded-3xl w-full h-auto aspect-[0.69] align-top object-cover object-[center_center] relative" />
+                            </div>
+                            <div class="sm:mt-[9px] sm:mx-1 sm:mb-0 flex flex-col relative mt-[9px] mx-[11px] mb-0">
+                                <h2
+                                    class="lg:text-[20px] lg:text-left sm:text-[16px] flex items-center font-normal text-[24px] leading-[1.37] font-NotoSans text-black tracking-[0px] relative min-h-[37px]">
+                                    鈴芽之旅
+                                </h2>
+                                <h5
+                                    class="lg:text-[12px] lg:text-left flex items-center font-extralight text-[16px] leading-[1.37] font-NotoSans text-[rgb(122,122,122)] tracking-[0px] relative mt-[7.5px] mx-0 mb-0">
+                                    新海誠
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="lg:flex-[0_0_calc(1/2_*_100%_-_16px_/_2)] lg:min-w-[unset] md:flex-[0_0_calc(1/1_*_100%_-_0px_/_1)] flex flex-col relative grow basis-[217px]">
+                        <div class="flex flex-col relative grow">
+                            <div class="flex flex-col relative">
+                                <img src="https://cdn.shopify.com/s/files/1/0613/7030/2681/products/212206efffac7d87f8d2a9dc50933b82_473x637.png?v=1672105246"
+                                    alt="alt text"
+                                    class="rounded-3xl w-full h-auto aspect-[0.69] align-top object-cover object-[center_center] relative" />
+                            </div>
+                            <div class="sm:mt-[9px] sm:mx-1 sm:mb-0 flex flex-col relative mt-[9px] mx-[11px] mb-0">
+                                <h2
+                                    class="lg:text-[20px] lg:text-left sm:text-[16px] flex items-center font-normal text-[24px] leading-[1.37] font-NotoSans text-black tracking-[0px] relative min-h-[37px]">
+                                    鈴芽之旅
+                                </h2>
+                                <h5
+                                    class="lg:text-[12px] lg:text-left flex items-center font-extralight text-[16px] leading-[1.37] font-NotoSans text-[rgb(122,122,122)] tracking-[0px] relative mt-[7.5px] mx-0 mb-0">
+                                    新海誠
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="lg:flex-[0_0_calc(1/2_*_100%_-_16px_/_2)] lg:min-w-[unset] md:flex-[0_0_calc(1/1_*_100%_-_0px_/_1)] flex flex-col relative grow basis-[217px]">
+                        <div class="flex flex-col relative grow">
+                            <div class="flex flex-col relative">
+                                <img src="https://cdn.shopify.com/s/files/1/0613/7030/2681/products/212206efffac7d87f8d2a9dc50933b82_473x637.png?v=1672105246"
+                                    alt="alt text"
+                                    class="rounded-3xl w-full h-auto aspect-[0.69] align-top object-cover object-[center_center] relative" />
+                            </div>
+                            <div class="sm:mt-[9px] sm:mx-1 sm:mb-0 flex flex-col relative mt-[9px] mx-[11px] mb-0">
+                                <h2
+                                    class="lg:text-[20px] lg:text-left sm:text-[16px] flex items-center font-normal text-[24px] leading-[1.37] font-NotoSans text-black tracking-[0px] relative min-h-[37px]">
+                                    鈴芽之旅
+                                </h2>
+                                <h5
+                                    class="lg:text-[12px] lg:text-left flex items-center font-extralight text-[16px] leading-[1.37] font-NotoSans text-[rgb(122,122,122)] tracking-[0px] relative mt-[7.5px] mx-0 mb-0">
+                                    新海誠
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="lg:flex-[0_0_calc(1/2_*_100%_-_16px_/_2)] lg:min-w-[unset] md:flex-[0_0_calc(1/1_*_100%_-_0px_/_1)] flex flex-col relative grow basis-[217px]">
+                        <div class="flex flex-col relative grow">
+                            <div class="flex flex-col relative">
+                                <img src="https://cdn.shopify.com/s/files/1/0613/7030/2681/products/212206efffac7d87f8d2a9dc50933b82_473x637.png?v=1672105246"
+                                    alt="alt text"
+                                    class="rounded-3xl w-full h-auto aspect-[0.69] align-top object-cover object-[center_center] relative" />
+                            </div>
+                            <div class="sm:mt-[9px] sm:mx-1 sm:mb-0 flex flex-col relative mt-[9px] mx-[11px] mb-0">
+                                <h2
+                                    class="lg:text-[20px] lg:text-left sm:text-[16px] flex items-center font-normal text-[24px] leading-[1.37] font-NotoSans text-black tracking-[0px] relative min-h-[37px]">
+                                    鈴芽之旅
+                                </h2>
+                                <h5
+                                    class="lg:text-[12px] lg:text-left flex items-center font-extralight text-[16px] leading-[1.37] font-NotoSans text-[rgb(122,122,122)] tracking-[0px] relative mt-[7.5px] mx-0 mb-0">
+                                    新海誠
+                                </h5>
+                            </div>
+                        </div>
+                    </div><!-- 區段1 -->
+                </div>
+            </div>
+</body>
+<!-- <div id="page_local_book">
+    <link href="./style/book_page.css" rel="stylesheet">
+
+    <button class="material-symbols-outlined" id="btn_close_local_book">close</button>
+
+    <script src="./scripts/book_page.js"></script>
+
+        <div class="flex items-center relative">
+
+            <div class="basis-[72px]"></div>
+            <h2
+                class="lg:text-[20px] lg:text-left sm:text-[16px] flex items-center font-medium text-[24px] leading-[1.37] font-NotoSans text-[rgb(13,5,5)] tracking-[0px] relative grow basis-[260px] min-h-[60px] mt-px mx-5 mb-2">
+                鈴芽之旅
+            </h2>
+            <div class="basis-[339px]"></div>
+            <div class="flex flex-col relative basis-8">
+                <img
+                src="https://storage.googleapis.com/pxcode-pro/644d82b70649a2000afe5491/assets/a91c7b56a00a1df962da29a5384f9bef.png" alt="alt text" class="w-8 h-auto aspect-[0.84] align-top object-cover object-[center_center] relative min-w-[32px] mt-[15px] mx-0 mb-[18px]"/>
+            </div>
+            <div class="basis-10"></div>
+            <div class="flex flex-col relative basis-11">
+                <img src="https://storage.googleapis.com/pxcode-pro/644d82b70649a2000afe5491/assets/9b4a1f3aa03dccbd3d640839f3d76bff.png" alt="alt text" class="w-11 h-auto aspect-[1.57] align-top object-cover object-[center_center] relative min-w-[44px] mt-[21px] mx-0 mb-[22px]"/>
+            </div>
+            <div class="basis-[35px]"></div>
+            <div class="flex flex-col relative basis-11">
+                <img src="https://storage.googleapis.com/pxcode-pro/644d82b70649a2000afe5491/assets/2e2a1e3bd49283f69abe1b631b25e09f.png" alt="alt text" class="w-11 h-auto aspect-[1.57] align-top object-cover object-[center_center] relative min-w-[44px] mt-[21px] mx-0 mb-[22px]" />
+            </div>
+            <div class="basis-[39px]"></div>
+            <div class="flex flex-col relative basis-9">
+                <img src="https://storage.googleapis.com/pxcode-pro/644d82b70649a2000afe5491/assets/bf3150f12ad33d5c056ebf9e86235a4d.png" alt="alt text" class="w-9 h-auto aspect-[0.9] align-top object-cover object-[center_center] relative min-w-[36px] mt-[15px] mx-0 mb-4" />
+            </div>
+            <div class="basis-[53px]"></div>
+            <div class="flex flex-col relative basis-9">
+                <img src="https://storage.googleapis.com/pxcode-pro/644d82b70649a2000afe5491/assets/8eb39d3c1f0298cfb39474a9e9986cac.png" alt="alt text" class="w-9 h-auto aspect-[1.2] align-top object-cover object-[center_center] relative min-w-[36px] mt-[23px] mx-0 mb-[18px]"/>
+            </div>
+            <div class="basis-[47px]"></div>
+            <h2 class="lg:text-[20px] lg:text-left sm:text-[16px] flex items-center font-normal text-[24px] leading-[1.37] font-NotoSans text-black tracking-[0px] relative grow basis-[230px] min-h-[71px]">
+                150 / 324 頁
+            </h2>
+            </div>
+            <h2 class="lg:text-[20px] lg:text-justify sm:text-[16px] flex items-center font-normal text-[24px] leading-[1.37] font-NotoSans text-black tracking-[0px] w-[93%] relative mt-8 mr-[6%] mb-0 mx-auto" >
+                       在這種不可避免的衝突下，我們必須解決這個問題。鈴芽之旅似乎是一種巧合，但如果我們從一個更大的角度看待問題，這似乎是一種不可避免的事實。高爾基深信，真正的朋友，在你獲得成功的時候，為你高興，而不捧場。在你遇到不幸或悲傷的時候，會給你及時的支持和鼓勵。在你有缺點可能犯錯誤的時候，會給你正確的批評和幫助。我們應該這樣要求自己的朋友，這樣的友誼才是真正可貴的。我希望諸位也能好好地體會這句話。蓬皮杜曾提出，命運就是對一個人的才能考驗的偶然。這讓我對於看待這個問題的方法有了巨大的改變。若無法徹底理解鈴芽之旅，恐怕會是人類的一大遺憾。丁尼生曾說過，在法律面前，一切頭銜都無濟於事。這句話幾乎解讀出了問題的根本。鈴芽之旅改變了我的命運。話雖如此，我們卻也不能夠這麼篤定。克雷洛夫說過一句富有哲理的話，自己的思想愈卑劣，就愈要挑剔別人的錯。希望大家能發現話中之話。領悟其中的道理也不是那麼的困難。我們都知道，只要有意義，那麼就必須慎重考慮。如果仔細思考鈴芽之旅，會發現其中蘊含的深遠意義。在人類的歷史中，我們總是盡了一切努力想搞懂鈴芽之旅。鈴芽之旅的出現，必將帶領人類走向更高的巔峰。我們一般認為，抓住了問題的關鍵，其他一切則會迎刃而解。我們不妨可以這樣來想:列寧曾說過，歷史早已證明，偉大的革命鬥爭會造就偉大人物，使過去不可能發揮的天才發揮出來。想必各位已經看出了其中的端倪。鈴芽之旅的發生，到底需要如何實現，不鈴芽之旅的發生，又會如何產生。奧維深信，使一個人偉大，並不在富裕和門第，而在於可貴的行為和高尚的品行。這段話雖短，卻足以改變人類的歷史。我們普遍認為，若能理解透徹核心原理，對其就有了一定的了解程度。每個人的一生中，幾乎可說碰到鈴芽之旅這件事，是必然會發生的。列寧講過一句值得人反覆尋思的話，科學的宗旨就是提供宇宙的真正寫真。這激勵了我。<br /><br />
+                       所謂鈴芽之旅，關鍵是鈴芽之旅需要如何解讀。我們可以很篤定的說，這需要花很多時間來嚴謹地論證。迪斯累利講過一段深奧的話，我們無法從書中了解人類。這段話可說是震撼了我。鈴芽之旅，發生了會如何，不發生又會如何。要想清楚，鈴芽之旅，到底是一種怎麼樣的存在。看看別人，再想想自己，會發現問題的核心其實就在你身旁。老舊的想法已經過時了。歐陽修曾說過一句意義深遠的話，君子與君子以同道為朋，小人與小人以同利為朋。這段話可說是震撼了我。這種事實對本人來說意義重大，相信對這個世界也是有一定意義的。貝多芬曾經提到過，苦難是人生的老師。通過苦難，走向歡樂。這句話決定了一切。對於鈴芽之旅，我們不能不去想，卻也不能走火入魔。<br /><br />
+            </h2>
+        </div>
+</div> -->
+
+</html><!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Store</title>
