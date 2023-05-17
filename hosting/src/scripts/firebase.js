@@ -112,7 +112,7 @@ function loadData() {
 
         const store_recommend_div = document.getElementById('recommend_book');
         if (store_recommend_div) {
-            const store_recommend_num = 2;   //推薦幾個
+            const store_recommend_num = Math.floor(Math.random() * 10) + 3;   //推薦幾個
             const randomNumbers = generateRandomNumbers(store_recommend_num, 0, allbooks.length - 1);   //隨機取亂數不重複
             let div_str = "";
 
@@ -120,7 +120,7 @@ function loadData() {
                 div_str += `
                     <div class="recommend-carousel-item active">
                         <div class="recommend-carousel-item-content-head">
-                            <div class="recommend-carousel-item-content-img">
+                            <div class="recommend-carousel-item-content-img w-fit h-fit">
                                 <img src="${allbooks[randomNumbers[i]]["content"]["cover"]}">
                             </div>
                             <div class="recommend-carousel-item-content-title">
@@ -128,14 +128,19 @@ function loadData() {
                             </div>
                             <div class="recommend-carousel-item-content">
                                 <p1>${allbooks[randomNumbers[i]]["content"]["name"]}</p1>
+                                <br>
                                 <u>${allbooks[randomNumbers[i]]["content"]["author"]}</u>
-                                <p2> ☆ 4.0</p2>
-                                <div class="bg-gradient-to-b from-gray-500 to-[#D8CCAE] inline-block text-transparent bg-clip-text text-base">
+                                <br>
+                                <div class="material-symbols-outlined">
+                                    <button onclick="location.href='../readbook/index.html'" class="button white-button">閱讀</button>
+                                    <button>bookmark</button>
+                                    <button onclick=" window.open('https://www.instagram.com/','_blank')">share </button>
+                                </div>
+                                <br>
+                                <div class="h-40 bg-gradient-to-b from-gray-500 to-[#D8CCAE] inline-block text-transparent bg-clip-text text-justify">
                                     <p>${allbooks[randomNumbers[i]]["content"]["summary"]}</p>
                                 </div>
-                                <button onclick="location.href='./readbook'" class="button white-button">閱讀</button>
-                                <button class="material-symbols-outlined">bookmark</button>
-                                <button class="material-symbols-outlined" onclick=" window.open('https://www.instagram.com/','_blank')">share </button>
+
                             </div>
                         </div>
                     </div>`;
@@ -154,11 +159,11 @@ function loadData() {
             for (let i = 0; i < store_rank_num; i++) {
                 div_str += `
                 <div class="col">
-                    <div id="btn_reading_book_detail" class="store-ranking-content">
+                    <div id="btn_reading_book_detail" class="store-ranking-content w-fit h-fit">
                         <img src="${allbooks[randomNumbers[i]]["content"]["cover"]}">
-                        <span class="store-ranking-conten-span">${allbooks[randomNumbers[i]]["content"]["name"]}</span>
-                        <p>${allbooks[randomNumbers[i]]["content"]["author"]}</p>
                     </div>
+                    <span class="store-ranking-conten-span">${allbooks[randomNumbers[i]]["content"]["name"]}</span>
+                    <p>${allbooks[randomNumbers[i]]["content"]["author"]}</p>
                 </div>`;
             }
 

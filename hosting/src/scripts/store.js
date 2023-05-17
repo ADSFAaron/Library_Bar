@@ -10,7 +10,7 @@ window.onload = function () {
     let index = 0;
 
     function updateCarousel() {
-        carouselInner.style.transform = `translateY(-${height * index * 1.265}px)`;
+        carouselInner.style.transform = `translateY(-${height * index * 1.167}px)`;
     }
 
     function nextSlide() {

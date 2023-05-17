@@ -227,16 +227,15 @@ body {
 
 /* 推薦書籍 主框架 調滑動間距 配合主框架*/
 .recommend-carousel {
-    height: 500px;
+    height: 600px;
     overflow: hidden;
     margin-bottom: 10px;
 }
 
 /* 推薦書籍 次框架 調滑動間距 配合次框架*/
 .recommend-carousel-inner {
-    display: flex;
     flex-direction: column;
-    height: 1200px;
+    height: 1000px;
     transition: transform 0.5s ease;
 }
 
@@ -248,8 +247,6 @@ body {
 
 /* 推薦書籍 圖片風格、大小 調高度沒啥用 */
 .recommend-carousel-item img {
-    width: 100%;
-    height: 100%;
     object-fit: cover;
     border-radius: 5%;
 }
@@ -323,30 +320,47 @@ body {
 
 /* 推薦書籍 內容 */
 .recommend-carousel-item-content > p{
-    font-size: 24px;
+    /* font-size: 24px; */
     text-align:justify;
 }
 
 .store-ranking-content{
-    margin: 15%;
-    flex-direction: column;
+     margin-bottom: .5rem;
+     overflow: hidden;
 }
-.store-ranking-content > p{
-    font-size: 15px;
+
+/* 綜合排名 圖片風格 大小 */
+.store-ranking-content > img{
+    border-radius: 5%;
+    background-color: #fff;
+    width: fit-content;
+    height: 250px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+}
+.col-sm {
+    width: 100%;
+    height: 100%;
+}
+
+.col-sm > p{
+    font-size: 0.9rem;
     color: rgb(126, 126, 126);
 
 }
-/* 綜合排名 圖片風格 大小 */
-.store-ranking-content > img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 5%;
-}
 
 .store-ranking-conten-span {
-    font-size: 25px;
-    color: rgb(0, 0, 0);
+    margin-bottom: .5rem;
+    height: 25px;
+    overflow: hidden;
+    max-width: 250px;
+    line-height: 1.5rem;
+
+    display: inline-block;
+    text-align: center;
+    font-size: 1.3rem
 }
 
 .main {
@@ -357,7 +371,7 @@ body {
 
 /* icon位置及大小 */
 .recommend-carousel-item-content > .material-symbols-outlined{
-    margin-left: 50px;
-    margin-top: 50px;
     font-size: 50px;
+    font-weight: bold;
+    text-align: justify;
 }

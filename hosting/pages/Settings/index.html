@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <!--  網頁標題  -->
-    <title>Library Bar</title>
+    <title>setting</title>
 
     <!-- 載入 lib -->
     <script type="module" src="../../src/scripts/bootstrap.bundle.min.js"></script>
@@ -31,9 +31,8 @@
 </head>
 
 <body>
-  
+
     <aside class="sidebar">
-        
         
         <nav>
 
@@ -83,7 +82,44 @@
 
 <!-- 網頁右側內容 -->
 <div class="main">
+        <div style="font-size: 40px; margin-bottom: 30px;">
+            <span>設定</span>
+        </div>
+        <hr>
+        <div style="margin-top: 10px;">
+          <span>閱讀速度</span>
+          <span style="font-size: 20px;">(判斷有效閱讀時間用)</span>
+          <select style="float: right;">
+            <option>快</option>
+            <option>中</option>
+            <option>慢</option>
+        </select>
+        </div>
+        <div style="margin-top: 10px;">
+            <span>字型</span>
+            <select style="float: right;">
+              <option>標楷體</option>
+              <option>新細明體</option>
+              <option>Times New Roman</option>
+          </select>
+        </div>
+        <div style="margin-top: 10px;">
+          <span>字體顏色</span>
+          <select style="float: right;">
+            <option>黑</option>
+            <option>白</option>
+        </select>
+        </div>
+        <div style="margin-top: 10px;">
+          <span>背景顏色</span>
+          <select style="float: right;">
+            <option>暗色</option>
+            <option>亮色</option>
+        </select>
+        </div>
 </div>
 
+
 </body>
+
 </html>
