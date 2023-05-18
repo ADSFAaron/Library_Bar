@@ -11,10 +11,11 @@ import {
     // query,
     // where,
     // Query,
-    // setDoc,
+    setDoc,
     doc,
     // addDoc,
-    getDoc
+    getDoc,
+    Timestamp
 } from "firebase/firestore"
 import {getAnalytics} from "firebase/analytics";
 
@@ -78,6 +79,8 @@ onAuthStateChanged(auth, async user => {
     // Get Collection
     // TODO: when user not exist => register
     const {uid} = user;
+    // const exist = doc(db, `users/${uid}`);
+
 
     // bookshelf collection
     const bookshelfCol = collection(db, `users/${uid}/Bookshelf`);
@@ -109,7 +112,60 @@ onAuthStateChanged(auth, async user => {
         console.log("Document data:", docSnap.data());
     } else {
         // docSnap.data() will be undefined in this case
-        console.log("No such document!");
+        console.log("No user document!");
+        // const dbRef = collection(db, "users");
+
+        // Account Info setup
+        await setDoc(doc(db, "users", uid), {
+            name: user.displayName,
+            totalReadbooks: 0,
+            totalReadtime: 0,
+            joinDate: Timestamp.now(),
+            birth: Timestamp.now(),
+            achievement: [],
+            preference: {
+                book: [],
+                magazine: []
+            }
+        }).then(e => {
+            console.log("successful add user data!", e);
+        }).catch(e => {
+            console.log(e);
+        });
+
+        // Settings Collection setup
+        await setDoc(doc(db, "users", uid, "Settings", "readingSet"), {
+            background: "ffffff",
+            font: "000000",
+            fontfamily: "serif",
+            speed: 1
+        }).then(e => {
+            console.log("successful add readingSet data!", e);
+        }).catch(e => {
+            console.log(e);
+        });
+
+        const empty = {};
+        const emptyBook = {
+            page: 0,
+            rate: 0.0,
+            review: "",
+            reviewDate: Timestamp.now()
+        }
+
+        const firstFeed = {
+            content: "歡迎 " + user.displayName + " 加入 Library Bar",
+            like: 0,
+            readtime: 0,
+            time: Timestamp.now(),
+            comment: []
+        }
+
+        await setDoc(doc(db, "users", uid, "Settings", "storeConnect"), empty, {merge: true});
+        await setDoc(doc(db, "users", uid, "Bookshelf", "bookID"), emptyBook, {merge: true});
+        await setDoc(doc(db, "users", uid, "Feed", Timestamp.now().seconds.toString()), firstFeed, {merge: true});
+
+        // console.log("Document written with ID: ", docRef.id);
     }
 
     // 更新資料 (用 updateDoc 也可以拉 ^^)
