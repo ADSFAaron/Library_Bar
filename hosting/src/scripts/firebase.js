@@ -32,6 +32,8 @@ function getAllBooks() {
                 console.error("Error getting documents: ", error);
                 reject(error);
             });
+        console.log("2");
+        
     });
 }
 
@@ -76,15 +78,22 @@ else {
 }
 
 
-const allbooks = JSON.parse(localStorage.getItem("allbooks"));
 
 
 
 function loadData() {
-    document.addEventListener('DOMContentLoaded', function () {
+    const allbooks = JSON.parse(localStorage.getItem("allbooks"));
+
+        
+    window.addEventListener('load', (event) => {
         // --------------------------新增分類按鈕----------------------------
+        console.log(allbooks.length);
+
         
         const store_class_div = document.getElementById('store_class');
+        console.log(allbooks.length);
+        console.log(store_class_div);
+
         if (store_class_div) {
             const classSet = new Set();
             const class_num = 12;   //選擇出現幾個分類的按鈕

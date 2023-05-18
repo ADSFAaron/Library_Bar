@@ -164,7 +164,6 @@ body {
 .button {
     border: none;
     color: white;
-    padding: 16px 64px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -173,6 +172,10 @@ body {
     transition-duration: 0.4s;
     cursor: pointer;
     border-radius: 45px;
+    width: 160px;
+    height: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   
   .white-button {
