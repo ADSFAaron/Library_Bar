@@ -29,7 +29,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </a>
     <h1>Vite + TypeScript</h1>
     <div class="card">
-      <button id="counter" type="button">Login</button>
+      <button id="counter" type="button" onclick="location.href='../pages/template/'">Login</button>
     </div>
     <p class="read-the-docs">
       Firebase Data in Browser console page
