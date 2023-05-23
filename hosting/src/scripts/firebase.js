@@ -141,7 +141,7 @@ function loadData() {
                                 <u>${allbooks[randomNumbers[i]]["content"]["author"]}</u>
                                 <br>
                                 <div class="material-symbols-outlined">
-                                    <button onclick="location.href='../readbook/index.html'" class="button white-button">閱讀</button>
+                                    <button onclick="location.href='../readbook/'" class="button white-button">閱讀</button>
                                     <button>bookmark</button>
                                     <button onclick=" window.open('https://www.instagram.com/','_blank')">share </button>
                                 </div>
