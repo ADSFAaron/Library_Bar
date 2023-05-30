@@ -160,23 +160,56 @@ function loadData() {
 
 
         const store_ranking_div = document.getElementById('store_ranking');
+        const store_rank_num = 6;   //排幾個
+        const randomNumbers = generateRandomNumbers(store_rank_num, 0, allbooks.length - 1);   //隨機取亂數不重複
         if(store_ranking_div){
-            const store_rank_num = 6;   //排幾個
-            const randomNumbers = generateRandomNumbers(store_rank_num, 0, allbooks.length - 1);   //隨機取亂數不重複
             let div_str = "";
 
             for (let i = 0; i < store_rank_num; i++) {
                 div_str += `
                 <div class="col">
-                    <div id="btn_reading_book_detail" class="store-ranking-content w-fit h-fit">
+                    <div id="btn_reading_book_detail${i}" class="store-ranking-content w-fit h-fit">
                         <img src="${allbooks[randomNumbers[i]]["content"]["cover"]}">
                     </div>
                     <span class="store-ranking-conten-span">${allbooks[randomNumbers[i]]["content"]["name"]}</span>
                     <p>${allbooks[randomNumbers[i]]["content"]["author"]}</p>
-                </div>`;
+                </div>
+                `;
             }
 
             store_ranking_div.innerHTML = div_str;
+
+            // const bookimg_div = document.getElementById('bookimg');
+            // if(bookimg_div){
+            //     let div_str = "";
+
+            //     for (let i = 0; i < store_rank_num; i++) {
+            //         div_str = `
+            //         <img src="${allbooks[randomNumbers[i]]["content"]["cover"]}"
+            //                     alt="alt text"
+            //                     class="rounded-3xl w-full h-auto aspect-[0.69] align-top object-cover object-[center_center] relative mt-0 mx-0 mb-3"/>
+            //         `;
+            //         bookimg_div.innerHTML = div_str;
+            //     }
+            // }
+
+            // 取得按鈕元素和浮動頁面元素
+            var btn_reading_book_detail = []
+            for (let i=0; i< store_rank_num; i++){
+                btn_reading_book_detail[i] = document.getElementById("btn_reading_book_detail" + i);
+            }
+            var page_book_detail = document.getElementById("page_book_detail");
+            var btn_close_book_detail = document.getElementById("btn_close_book_detail");
+            // 當按鈕被點擊時，顯示浮動頁面
+            for (let i=0; i< store_rank_num; i++){
+                btn_reading_book_detail[i].addEventListener("click", function() {
+                    page_book_detail.style.display = "block";
+                });
+            }
+            // 當關閉按鈕被點擊時，隱藏浮動頁面
+            btn_close_book_detail.addEventListener("click", function() {
+                page_book_detail.style.display = "none";
+            });
         }
     });
 
