@@ -1,5 +1,5 @@
 /* 隱藏浮動頁面，直到按下按鈕才顯示 */
-#page_book_detail {
+.page_book_detail {
     position: absolute;
     display: none;
 
@@ -12,11 +12,11 @@
     
     margin-left: 260px;
     margin-top: -1125px;
-    width: auto;
+    width: 80%;
     height: auto;
 }
 /* 為關閉按鈕樣式設定 */
-#btn_close_book_detail {
+.material-symbols-outlined {
     position: relative;
     margin-top: 25px;
     margin-left: 25px;
