@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <!--  Meta data  -->
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!--  網頁標題  -->
+    <title>Profile</title>
+
+    <!-- 載入 lib -->
+    <script type="module" src="../../src/scripts/bootstrap.bundle.min.js"></script>
+    <script type="module" src="../../src/scripts/popper.min.js"></script>
+    <script type="module" src="../../src/scripts/bootstrap.min.js"></script>
+    <script type="module" src="../../src/scripts/jquery-3.6.4.min.js"></script>
+    <script type="module" type="module" src="../../src/scripts/url_add_user_uid.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
+    <link href="../../src/style/bootstrap.min.css" rel="stylesheet">
+    <link href="../../src/style/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+
+</head>
+
+<body>
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-firestore.js"></script>
+  <script src="../../src/scripts/firebaseprofile.js"></script>
+  <aside class="sidebar">
+        <nav>
+            <button id="button_Search">
+
+            </button>
+
+            <button id="button_Feed">
+
+            </button>
+
+            <button id="button_Store">
+
+            </button>
+
+            <button id="button_Profile">
+
+            </button>
+
+            <button id="button_Bookshelf">
+                
+            </button>
+
+            <button id="button_Seeting">
+                
+            </button>
+        </nav>
+    </aside>
+
+<!-- 網頁右側內容 -->
+    <div class="flex flex-col w-[65.28%] relative grow mt-[89px] mr-[5.76%] mb-[109px] ml-[28.96%]">
+      <div class="flex flex-col bg-white rounded-3xl relative mb-0 ml-0">
+        <div class="flex items-center w-[87.87%] relative grow mt-[21px] mr-[5.35%] mb-7 ml-[6.78%]">
+          <div class="flex flex-col relative basis-[142px] mt-[18px] mx-0 mb-0">
+            <div class="flex flex-col relative">
+              <img
+                src="https://storage.googleapis.com/pxcode-pro/644d82b70649a2000afe5491/assets/f395c7a3dd1bd0cb53211ef1d71e1e55.png"
+                alt="alt text"
+                class="w-[calc(100%_-_12px)] h-auto aspect-[1] align-top object-cover object-[center_center] relative mt-0 mr-3 mb-0 ml-0"
+              />
+            </div>
+            <div class="flex flex-col relative mt-[18px] mr-0 mb-0 ml-[19px]">
+              <div id="profile_name">
+                <!-- profile_name -->
+              </div>
+              <div class="flex items-center gap-x-2.5 relative mt-3.5 mx-0 mb-0">
+                <button class="flex flex-col relative basis-[18px]">
+                  <img
+                    src="https://storage.googleapis.com/pxcode-pro/644d82b70649a2000afe5491/assets/1c91c42c21a405f013de752c4cbc1f3b.png"
+                    alt="alt text"
+                    class="w-[18px] h-auto aspect-[1] align-top object-cover object-[center_center] relative min-w-[18px] mt-1.5 mx-0 mb-[5px]"
+                  />
+                </button>
+                <p
+                  class="flex items-center font-normal text-xs font-NotoSans text-[rgb(122,122,122)] tracking-[0px] relative grow basis-[95px] min-h-[29px]"
+                >
+                  編輯個人檔案
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="basis-16"></div>
+          <div class="flex flex-col relative basis-[476px]">
+            <div class="flex items-center gap-x-4 relative">
+              <div class="flex flex-col bg-[rgb(106,127,173)] rounded-3xl relative basis-[230px]">
+                <div class="flex flex-col relative grow mt-2.5 mr-0 mb-[9px] ml-1">
+                  <div class="flex items-center gap-x-5 relative mt-0 mr-0 mb-0 ml-3">
+                    <div class="flex flex-col relative basis-12">
+                      <img
+                        src="https://storage.googleapis.com/pxcode-pro/644d82b70649a2000afe5491/assets/95f5db4befbc863ef69bb06ff568c857.png"
+                        alt="alt text"
+                        class="w-12 h-auto aspect-[1] align-top object-cover object-[center_center] relative min-w-[48px] mt-1 mx-0 mb-[5px]"
+                      />
+                    </div>
+                    <div id="profile_watchtime">
+                      <!-- profile_watchtime -->
+                    </div>
+                  </div>
+                  <h3
+                    class="flex items-center justify-center font-normal text-[20px] leading-[1.35] font-NotoSans text-[rgb(250,247,239)] text-center tracking-[0px] w-[53.24%] relative min-h-[37px] mt-[7px] mr-[46.76%] mb-0 ml-0"
+                  >
+                    觀看時間
+                  </h3>
+                </div>
+              </div>
+              <div class="flex flex-col bg-[rgb(249,235,202)] rounded-3xl relative basis-[230px]">
+                <div class="flex flex-col relative grow mt-2.5 mr-0 mb-[9px] ml-3.5">
+                  <div class="flex items-center relative mt-0 mr-0 mb-0 ml-0.5">
+                    <div class="flex flex-col relative basis-12">
+                      <img
+                        src="https://storage.googleapis.com/pxcode-pro/644d82b70649a2000afe5491/assets/ea6525c1bf9fbe479202e57bd343e512.png"
+                        alt="alt text"
+                        class="w-12 h-auto aspect-[1] align-top object-cover object-[center_center] relative min-w-[48px] mt-1 mx-0 mb-[5px]"
+                      />
+                    </div>
+                    <div class="basis-[30px]"></div>
+                    <div id="profile_watchtbook">
+                      <!-- profile_watchtbook -->
+                    </div>
+                  </div>
+                  <h3
+                    class="flex items-center justify-center font-normal text-[20px] leading-[1.35] font-NotoSans text-[rgb(70,70,70)] text-center tracking-[0px] w-[53.24%] relative min-h-[37px] mt-[7px] mr-[46.76%] mb-0 ml-0"
+                  >
+                    已觀看書籍
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-x-4 relative mt-[18px] mx-0 mb-0">
+              <div class="flex flex-col bg-[rgb(177,250,222)] rounded-3xl relative basis-[230px]">
+                <div class="flex flex-col relative grow mt-2.5 mr-0 mb-[9px] ml-3.5">
+                  <div class="flex items-center relative mt-0 mr-0 mb-0 ml-0.5">
+                    <div class="flex flex-col relative basis-12">
+                      <img
+                        src="https://storage.googleapis.com/pxcode-pro/644d82b70649a2000afe5491/assets/81b5b389115fd17a761aac5be7a98182.png"
+                        alt="alt text"
+                        class="w-12 h-auto aspect-[1] align-top object-cover object-[center_center] relative min-w-[48px] mt-1 mx-0 mb-[5px]"
+                      />
+                    </div>
+                    <div class="basis-[30px]"></div>
+                    <div id="profile_achievement">
+                      <!-- profile_achievement -->
+                    </div>
+                  </div>
+                  <h3
+                    class="flex items-center font-normal text-[20px] leading-[1.35] font-NotoSans text-[rgb(70,70,70)] tracking-[0px] relative mt-[7px] mx-0 mb-0"
+                  >
+                     成就
+                  </h3>
+                </div>
+              </div>
+              <button class="flex flex-col relative basis-[230px]">
+                <img
+                  src="https://storage.googleapis.com/pxcode-pro/644d82b70649a2000afe5491/assets/be7940f30ffa9774986f29e4e4cdb0ed.png"
+                  alt="alt text"
+                  class="w-[calc(100%_-_0px)] h-auto aspect-[1.92] align-top object-cover object-[center_center] relative"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col bg-white rounded-3xl relative mt-[33px] mx-0 mb-0">
+        <div class="flex flex-col w-[82.55%] relative grow mt-[37.5px] mr-[12.45%] mb-[22.5px] ml-[5%]">
+          <div class="flex flex-col w-[85.95%] relative mt-0 mr-[14.05%] mb-0 ml-0">
+            <div class="flex items-center relative">
+              <div class="flex flex-col relative basis-12">
+                <img
+                  src="https://storage.googleapis.com/pxcode-pro/644d82b70649a2000afe5491/assets/3570c0bcdd22aa187eaff62a49767c61.png"
+                  alt="alt text"
+                  class="w-12 h-auto aspect-[1] align-top object-cover object-[center_center] relative min-w-[48px] mt-[3.5px] mx-0 mb-0"
+                />
+              </div>
+              <div class="basis-[22px]"></div>
+              <div class="flex flex-col relative basis-[167px]">
+                <h3
+                  class="flex items-center font-normal text-[21px] leading-[1.38] font-NotoSans text-black tracking-[0px] relative"
+                >
+                  小咪
+                </h3>
+                <div
+                  class="flex items-center font-normal text-[14px] leading-[1.35] font-NotoSans text-black tracking-[0px] relative mt-[2.5px] mx-0 mb-0"
+                >
+                  2023 / 04 / 10 12:34
+                </div>
+              </div>
+            </div>
+            <h3
+              class="flex items-center justify-start font-normal text-[21px] leading-[1.38] font-NotoSans text-black text-right tracking-[0px] relative mt-[23px] mx-0 mb-0"
+            >
+              小咪看了 勇者系列/第四集：牛牛煙與笑笑鬼 已觀看 15 %
+            </h3>
+          </div>
+          <div
+            class="flex flex-col bg-[rgb(242,165,22)] rounded-3xl w-[86.73%] relative mt-[25px] mr-[4.25%] mb-0 ml-[9.02%]"
+          >
+            <div class="flex items-center relative grow mt-7 mr-[19px] mb-4 ml-6">
+              <div class="flex flex-col relative basis-[172px]">
+                <img
+                  src="https://storage.googleapis.com/pxcode-pro/644d82b70649a2000afe5491/assets/a61e3f94439b4edaeff3ed4f800e9696.png"
+                  alt="alt text"
+                  class="rounded-3xl w-[calc(100%_-_0px)] h-auto aspect-[1] align-top object-cover object-[center_center] relative mt-[9px] mx-0 mb-5"
+                />
+              </div>
+              <div class="basis-[29px]"></div>
+              <div class="flex flex-col relative basis-[429px]">
+                <div class="flex flex-col relative mt-0 mr-[19px] mb-0 ml-0">
+                  <div class="flex flex-col relative mt-0 mr-[31px] mb-0 ml-[3px]">
+                    <h2
+                      class="flex items-center font-medium text-[24px] leading-[1.37] font-NotoSans text-[rgb(13,5,5)] tracking-[0px] relative min-h-[62px]"
+                    >
+                      勇者系列/第四集：牛牛煙與笑笑鬼
+                    </h2>
+                    <h5
+                      class="flex items-center font-medium text-[16px] leading-[1.37] font-NotoSans text-[rgb(13,5,5)] underline tracking-[0px] relative mt-[3px] mx-0 mb-0"
+                    >
+                      黃色書刊
+                    </h5>
+                  </div>
+                  <h5
+                    class="flex items-center font-medium text-[16px] leading-[1.37] font-NotoSans text-[rgb(13,5,5)] tracking-[0px] relative mt-[15px] mx-0 mb-0"
+                  >
+                    這裡是魔族的天堂，還是禁錮的牢籠？<br />我們守護的世界的真相，究竟是什麼？
+                  </h5>
+                </div>
+                <div
+                  class="flex flex-col bg-white rounded-[15.75px] w-[29.84%] relative mt-6 mr-0 mb-0 ml-[70.16%]"
+                >
+                    <button onclick="location.href='../readbook/'" class="flex items-center justify-center font-medium text-[14px] leading-[1.35] font-NotoSans text-black text-center tracking-[0px] relative grow min-h-[23px] my-1 mx-6">
+                        閱讀
+                    </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center w-[90.98%] relative mt-[22.5px] mr-0 mb-0 ml-[9.02%]">
+            <div class="flex items-center relative basis-[70px]">
+              <button class="flex flex-col relative basis-5">
+                <img
+                  src="https://storage.googleapis.com/pxcode-pro/644d82b70649a2000afe5491/assets/5d315e846cef3209ae19e8fb6ce3d09c.png"
+                  alt="alt text"
+                  class="w-5 h-auto aspect-[1.18] align-top object-cover object-[center_center] relative min-w-[20px] mt-[6.5px] mx-0 mb-[5.5px]"
+                />
+              </button>
+              <div class="basis-[21px]"></div>
+              <h3
+                class="flex items-center font-normal text-[21px] leading-[1.38] font-NotoSans text-black tracking-[0px] relative shrink-0 basis-auto min-w-[29px]"
+              >
+                8
+              </h3>
+            </div>
+            <div class="basis-[38px]"></div>
+            <div class="flex items-center relative basis-[74px]">
+              <button class="flex flex-col relative basis-[21px]">
+                <img
+                  src="https://storage.googleapis.com/pxcode-pro/644d82b70649a2000afe5491/assets/1c8732af030cb00e125146c6afc724f8.png"
+                  alt="alt text"
+                  class="w-[21px] h-auto aspect-[1.05] align-top object-cover object-[center_center] relative min-w-[21px] my-[4.5px] mx-0"
+                />
+              </button>
+              <div class="basis-[23px]"></div>
+              <h3
+                class="flex items-center font-normal text-[21px] leading-[1.38] font-NotoSans text-black tracking-[0px] relative shrink-0 basis-auto min-w-[30px]"
+              >
+                20
+              </h3>
+            </div>
+            <div class="basis-12"></div>
+            <div class="flex items-center gap-x-[13px] relative basis-[132px]">
+              <button class="flex flex-col relative basis-4">
+                <img
+                  src="https://storage.googleapis.com/pxcode-pro/644d82b70649a2000afe5491/assets/b49ee6d2364b6f6b8a8f670cc0be2cf0.png"
+                  alt="alt text"
+                  class="w-4 h-auto aspect-[0.8] align-top object-cover object-[center_center] relative min-w-[16px] my-[4.5px] mx-0"
+                />
+              </button>
+              <h3 class="flex items-center relative shrink-0 basis-auto min-w-[103px]">
+                <span class="font-normal text-[21px] leading-[1.38] font-NotoSans text-black tracking-[0px]"
+                  ><span class="not-italic text-[1em] leading-[1.38] font-NotoSans text-black tracking-[0px]"
+                    >20 : 30 </span
+                  ><span
+                    class="not-italic text-[0.5714285714285714em] leading-[1.33] font-NotoSans text-black tracking-[0px]"
+                    >秒</span
+                  ></span
+                >
+              </h3>
+            </div>
+            <div class="basis-[30px]"></div>
+            <div class="flex items-center relative basis-[314px] my-[0.5px] mx-0">
+              <div class="flex flex-col relative basis-[29px]">
+                <img
+                  src="https://storage.googleapis.com/pxcode-pro/644d82b70649a2000afe5491/assets/9f23b1dd1e2bb088fba098e5a22be25a.png"
+                  alt="alt text"
+                  class="w-[29px] h-auto aspect-[1.04] align-top object-cover object-[center_center] relative min-w-[29px]"
+                />
+              </div>
+              <div class="flex flex-col relative shrink-0 basis-[285px] min-w-[285px]">
+                <div class="flex flex-col relative grow mt-0 mr-0 mb-0 ml-[9px]">
+                  <div
+                    class="flex items-center font-normal text-[14px] leading-[1.35] font-NotoSans text-[rgb(30,30,30)] tracking-[0px] relative grow min-h-[28px]"
+                  >
+                    李大華 : 哇~ 太酷了吧
+                  </div>
+                  <button onclick=" window.open('https://www.instagram.com/','_blank')">
+                    <img
+                        src="https://storage.googleapis.com/pxcode-pro/644d82b70649a2000afe5491/assets/d1c6baef3b2416a3c0bbcf61c17c9cf2.png"
+                        alt="alt text"
+                        class="w-[15px] h-auto aspect-[1.25] align-top object-cover object-[center_center] absolute top-2 right-[96px]"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</body>
+
+</html>
