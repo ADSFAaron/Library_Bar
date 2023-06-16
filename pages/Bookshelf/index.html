@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Store</title>
+
+    <link href="../../src/style/bootstrap.min.css" rel="stylesheet">
+    <script type="module" src="../../src/scripts/bootstrap.bundle.min.js"></script>
+    <script type="module" src="../../src/scripts/popper.min.js"></script>
+    <script type="module" src="../../src/scripts/bootstrap.min.js"></script>
+    <script type="module" src="../../src/scripts/jquery-3.6.4.min.js"></script>
+    <script type="module" src="../../src/scripts/store.js"></script>
+    <script type="module" src="../../src/scripts/url_add_user_uid.js"></script>
+
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
+    <link href="../../src/style/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+
+    <!-- import lib -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+          rel="stylesheet"/>
+</head>
+
+<body>
+    
+    <aside class="sidebar">
+        <nav>
+            <button id="button_Search">
+
+            </button>
+
+            <button id="button_Feed">
+
+            </button>
+
+            <button id="button_Store">
+
+            </button>
+
+            <button id="button_Profile">
+
+            </button>
+
+            <button id="button_Bookshelf">
+                
+            </button>
+
+            <button id="button_Seeting">
+                
+            </button>
+        </nav>
+    </aside>
+
+    <div class="flex flex-col w-[44.65%] relative grow mt-10 mr-[21.81%] mb-[210px] ml-[33.54%]">
+        <div class="flex flex-col relative">
+            <h1 class="flex items-center font-normal text-[48px] leading-[1.35] font-NotoSans text-black tracking-[0px] relative grow min-h-[232px]">
+                Bookshelf
+            </h1>
+            <h2 class="flex items-center font-normal text-[24px] leading-[1.37] font-NotoSans text-[rgb(122,122,122)] tracking-[0px] w-[117px] h-auto absolute bottom-[41px] left-0">
+                2 / 10 本書
+            </h2>
+        </div>
+        <div class="flex flex-col w-[88.18%] relative mt-[84px] mr-[11.82%] mb-0 ml-0">
+            <div class="flex flex-col relative grow">
+                <div class="bg-[rgb(242,165,22)] rounded-3xl relative grow min-h-[187px]">
+                    <h2 class="flex items-center font-medium text-[24px] leading-[1.37] font-NotoSans text-[rgb(13,5,5)] tracking-[0px] w-[263px] h-[66px] absolute top-[29px] right-[45px]">
+                        勇者系列/第四集：牛牛煙與笑笑鬼
+                    </h2>
+                    <p class="flex items-center font-medium text-xs font-NotoSans text-[rgb(13,5,5)] tracking-[0px] w-[81px] h-[29px] absolute top-[93px] right-[227px]">
+                        16 / 208 頁
+                    </p>
+                    <div onclick="location.href='../readbook/'" class="bg-white hover:bg-slate-200 w-24 h-12 py-2 px-4 rounded-full text-black text-center text-base flex items-center justify-center cursor-pointer select-none absolute bottom-[30px] right-[35px]">
+                        閱讀
+                    </div>
+                </div>
+                <img src="https://storage.googleapis.com/pxcode-pro/644d82b70649a2000afe5491/assets/46694c94e4044c5c58aae1a02498e22f.png" alt="alt text" class="rounded-3xl w-[201px] h-auto aspect-[1] align-top object-cover object-[center_center] absolute bottom-[27px] left-[19px]"/>
+            </div>
+        </div>
+        <div class="flex flex-col w-[88.18%] relative mt-[84px] mr-[11.82%] mb-0 ml-0">
+            <div class="flex flex-col relative grow">
+                <div class="bg-[rgb(126,179,191)] rounded-3xl relative grow min-h-[187px]">
+                    <img src="https://storage.googleapis.com/pxcode-pro/644d82b70649a2000afe5491/assets/862b7c0250a9c5d9c0e8b25c0ac70a0c.png" alt="alt text" class="rounded-3xl w-[146px] h-auto aspect-[0.69] align-top object-cover object-[center_center] absolute bottom-[30px] left-[47px]"/>
+                    <h2 class="flex items-center font-medium text-[24px] leading-[1.37] font-NotoSans text-[rgb(242,242,242)] tracking-[0px] w-[263px] h-[62px] absolute top-[37px] right-[45px]">
+                        鈴芽之旅
+                    </h2>
+                    <p class="flex items-center font-normal text-xs font-NotoSans text-[rgb(242,242,242)] tracking-[0px] w-[85px] h-[26px] absolute top-[86px] right-[223px]">
+                        150 / 324 頁
+                    </p>
+                    <div onclick="location.href='../readbook/'" class="bg-white hover:bg-slate-200 w-24 h-12 py-2 px-4 rounded-full text-black text-center text-base flex items-center justify-center cursor-pointer select-none absolute bottom-[30px] right-[35px]">
+                        閱讀
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>           
+
+</body>
+
+</html>
