@@ -31,68 +31,27 @@ function getAllBooks() {
             .catch((error) => {
                 console.error("Error getting documents: ", error);
                 reject(error);
-            });
-        console.log("2");
-        
+            });        
     });
 }
 
+// ----------------------- 取亂數不重複----------------------
+function generateRandomNumbers(amount, min, max) {
+    const numbers = new Set();
 
-// --------------------------計時器----------------------------------------
-
-//const expirationTime = 43200 * 1000; // 毫秒
-const expirationTime = 9999999 * 1000; // 毫秒
-const bookStoredTime = localStorage.getItem("bookStoredTime");
-const currentTime = new Date().getTime();
-
-if (bookStoredTime === null) {
-    console.log("設置");
-    localStorage.setItem("bookStoredTime", new Date().getTime());
-
-    getAllBooks()
-        .then((book_array) => {
-            localStorage.setItem("allbooks", JSON.stringify(book_array));
-            loadData();
-        })
-        .catch((error) => {
-            console.error("Error getting all books: ", error);
-        });
-
-}
-else {
-    if ((currentTime - bookStoredTime > expirationTime)) {
-        console.log("over")
-        localStorage.setItem("bookStoredTime", new Date().getTime());
-
-        getAllBooks()
-            .then((book_array) => {
-                localStorage.setItem("allbooks", JSON.stringify(book_array));
-                loadData();
-            })
-            .catch((error) => {
-                console.error("Error getting all books: ", error);
-            });
+    while (numbers.size < amount) {
+        const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+        numbers.add(randomNumber);
     }
-    else
-        loadData();
+
+    return Array.from(numbers);
 }
-
-
-
-
 
 function loadData() {
     const allbooks = JSON.parse(localStorage.getItem("allbooks"));
-
-        
     window.addEventListener('load', (event) => {
         // --------------------------新增分類按鈕----------------------------
-        console.log(allbooks.length);
-
-        
         const store_class_div = document.getElementById('store_class');
-        console.log(allbooks.length);
-        console.log(store_class_div);
 
         if (store_class_div) {
             const classSet = new Set();
@@ -310,21 +269,41 @@ function loadData() {
             }
         }
     });
-
-
 }
 
+// --------------------------計時器----------------------------------------
+const expirationTime = 9999999 * 1000; // 毫秒
+const bookStoredTime = localStorage.getItem("bookStoredTime");
+const currentTime = new Date().getTime();
 
+if (bookStoredTime === null) {
+    console.log("設置");
+    localStorage.setItem("bookStoredTime", new Date().getTime());
 
+    getAllBooks()
+        .then((book_array) => {
+            localStorage.setItem("allbooks", JSON.stringify(book_array));
+            loadData();
+        })
+        .catch((error) => {
+            console.error("Error getting all books: ", error);
+        });
+}
+else {
+    if ((currentTime - bookStoredTime > expirationTime)) {
+        console.log("over")
+        localStorage.setItem("bookStoredTime", new Date().getTime());
 
-// ----------------------- 取亂數不重複----------------------
-function generateRandomNumbers(amount, min, max) {
-    const numbers = new Set();
-
-    while (numbers.size < amount) {
-        const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-        numbers.add(randomNumber);
+        getAllBooks()
+            .then((book_array) => {
+                localStorage.setItem("allbooks", JSON.stringify(book_array));
+                loadData();
+            })
+            .catch((error) => {
+                console.error("Error getting all books: ", error);
+            });
     }
-
-    return Array.from(numbers);
+    else{
+        loadData();
+    }
 }
