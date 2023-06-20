@@ -62,187 +62,8 @@ function getAllsetting(url) {
     });
 }
 
-// --------------------------計時器----------------------------------------
-
-//const expirationTime = 43200 * 1000; // 毫秒
-const expirationTime1 = 9999999 * 1000; // 毫秒
-const usersStoredTime = localStorage.getItem("usersStoredTime");
-const currentTime1 = new Date().getTime();
-
-if (usersStoredTime === null) {
-    console.log("設置");
-    localStorage.setItem("usersStoredTime", new Date().getTime());
-
-    getAllusers()
-        .then((users_array) => {
-            localStorage.setItem("allusers", JSON.stringify(users_array));
-            loadData();
-        })
-        .catch((error) => {
-            console.error("Error getting all users: ", error);
-        });
-
-}
-else {
-    if ((currentTime1 - usersStoredTime > expirationTime1)) {
-        console.log("over")
-        localStorage.setItem("usersStoredTime", new Date().getTime());
-
-        getAllusers()
-            .then((users_array) => {
-                localStorage.setItem("allusers", JSON.stringify(users_array));
-                loadData();
-            })
-            .catch((error) => {
-                console.error("Error getting all users: ", error);
-            });
-    }
-    else
-        loadData();
-}
-
-// --------------------------計時器----------------------------------------
-
-//const expirationTime = 43200 * 1000; // 毫秒
-const expirationTime = 9999999 * 1000; // 毫秒
-const settingStoredTime = localStorage.getItem("settingStoredTime");
-const currentTime = new Date().getTime();
-
-const url = window.location.href.split('?')[1]
-console.log(url);
-
-if (settingStoredTime === null) {
-    console.log("設置");
-    localStorage.setItem("settingtStoredTime", new Date().getTime());
-
-    getAllsetting(url)
-        .then((setting_array) => {
-            localStorage.setItem("allsetting", JSON.stringify(setting_array));
-            loadData();
-        })
-        .catch((error) => {
-            console.error("Error getting all setting: ", error);
-        });
-
-}
-else {
-    if ((currentTime - settingStoredTime > expirationTime)) {
-        console.log("over")
-        localStorage.setItem("settingStoredTime", new Date().getTime());
-
-        getAllsetting(url)
-            .then((setting_array) => {
-                localStorage.setItem("allusers", JSON.stringify(users_array));
-                loadData();
-            })
-            .catch((error) => {
-                console.error("Error getting all setting: ", error);
-            });
-    }
-    else
-        loadData();
-}
-
-function setting(){
-    if (settingStoredTime === null) {
-        localStorage.setItem("settingtStoredTime", new Date().getTime());
-        getAllsetting(url)
-            .then((setting_array) => {
-                localStorage.setItem("allsetting", JSON.stringify(setting_array));
-                loadData();
-            })
-            .catch((error) => {
-                console.error("Error getting all setting: ", error);
-            });
-    
-    }
-    else {
-        if ((currentTime - settingStoredTime > expirationTime)) {
-            localStorage.setItem("settingStoredTime", new Date().getTime());
-            getAllsetting(url)
-                .then((setting_array) => {
-                    localStorage.setItem("allusers", JSON.stringify(users_array));
-                    loadData();
-                })
-                .catch((error) => {
-                    console.error("Error getting all setting: ", error);
-                });
-        }
-        else
-            loadData();
-    }
-}
-
-
-function getspeed() {
-    console.log(document.getElementById('speed').value);
-    var setspeed = {
-        speed: document.getElementById('speed').value
-    }
-    firebase.firestore()
-            .collection("users").doc(url).collection("Settings").doc("readingSet")
-            .update(setspeed)
-            .then(function() {
-                setting();
-            })
-            .catch((error) => {
-                console.error("Error getting all setting: ", error);
-            });
-}
-
-function getfontfamily() {
-    console.log(document.getElementById('fontfamily').value);
-    var setfontfamily = {
-        fontfamily: document.getElementById('fontfamily').value
-    }
-    firebase.firestore()
-            .collection("users").doc(url).collection("Settings").doc("readingSet")
-            .update(setfontfamily)
-            .then(function() {
-                setting();
-            })
-            .catch((error) => {
-                console.error("Error getting all setting: ", error);
-            });
-}
-
-function getfont() {
-    console.log(document.getElementById('font').value);
-    var setfont = {
-        font: document.getElementById('font').value
-    }
-    firebase.firestore()
-            .collection("users").doc(url).collection("Settings").doc("readingSet")
-            .update(setfont)
-            .then(function() {
-                setting();
-            })
-            .catch((error) => {
-                console.error("Error getting all setting: ", error);
-            });
-}
-
-function getbackground() {
-    console.log(document.getElementById('background').value);
-    var setbackground = {
-        background: document.getElementById('background').value
-    }
-    firebase.firestore()
-            .collection("users").doc(url).collection("Settings").doc("readingSet")
-            .update(setbackground)
-            .then(function() {
-                setting();
-            })
-            .catch((error) => {
-                console.error("Error getting all setting: ", error);
-            });
-}
-
 function loadData() {
     const allsetting = JSON.parse(localStorage.getItem("allsetting"));
-    // console.log(allsetting);
-    const allusers = JSON.parse(localStorage.getItem("allusers"));
-    const allbooks = JSON.parse(localStorage.getItem("allbooks"));
     window.addEventListener('load', (event) => {
         // --------------------------setting_speed--------------------------
         const setting_speed_div = document.getElementById('setting_speed');
@@ -431,4 +252,172 @@ function loadData() {
         setting_background_div.innerHTML = div_background;
         
     });
+}
+
+function setting(){
+    if (settingStoredTime === null) {
+        localStorage.setItem("settingtStoredTime", new Date().getTime());
+        getAllsetting(url)
+            .then((setting_array) => {
+                localStorage.setItem("allsetting", JSON.stringify(setting_array));
+                loadData()
+            })
+            .catch((error) => {
+                console.error("Error getting all setting: ", error);
+            });
+    
+    }
+    else {
+        if ((currentTime - settingStoredTime > expirationTime)) {
+            localStorage.setItem("settingStoredTime", new Date().getTime());
+            getAllsetting(url)
+                .then((setting_array) => {
+                    localStorage.setItem("allusers", JSON.stringify(users_array));
+                    loadData()
+                })
+                .catch((error) => {
+                    console.error("Error getting all setting: ", error);
+                });
+        }
+        else
+            loadData()
+    }
+}
+
+function getspeed() {
+    console.log(document.getElementById('speed').value);
+    var setspeed = {
+        speed: document.getElementById('speed').value
+    }
+    firebase.firestore()
+            .collection("users").doc(url).collection("Settings").doc("readingSet")
+            .update(setspeed)
+            .then(function() {
+                setting();
+            })
+            .catch((error) => {
+                console.error("Error getting all setting: ", error);
+            });
+}
+
+function getfontfamily() {
+    console.log(document.getElementById('fontfamily').value);
+    var setfontfamily = {
+        fontfamily: document.getElementById('fontfamily').value
+    }
+    firebase.firestore()
+            .collection("users").doc(url).collection("Settings").doc("readingSet")
+            .update(setfontfamily)
+            .then(function() {
+                setting();
+            })
+            .catch((error) => {
+                console.error("Error getting all setting: ", error);
+            });
+}
+
+function getfont() {
+    console.log(document.getElementById('font').value);
+    var setfont = {
+        font: document.getElementById('font').value
+    }
+    firebase.firestore()
+            .collection("users").doc(url).collection("Settings").doc("readingSet")
+            .update(setfont)
+            .then(function() {
+                setting();
+            })
+            .catch((error) => {
+                console.error("Error getting all setting: ", error);
+            });
+}
+
+function getbackground() {
+    console.log(document.getElementById('background').value);
+    var setbackground = {
+        background: document.getElementById('background').value
+    }
+    firebase.firestore()
+            .collection("users").doc(url).collection("Settings").doc("readingSet")
+            .update(setbackground)
+            .then(function() {
+                setting();
+            })
+            .catch((error) => {
+                console.error("Error getting all setting: ", error);
+            });
+}
+
+// --------------------------計時器----------------------------------------
+const expirationTime1 = 9999999 * 1000; // 毫秒
+const usersStoredTime = localStorage.getItem("usersStoredTime");
+const currentTime1 = new Date().getTime();
+
+if (usersStoredTime === null) {
+    console.log("設置");
+    localStorage.setItem("usersStoredTime", new Date().getTime());
+
+    getAllusers()
+        .then((users_array) => {
+            localStorage.setItem("allusers", JSON.stringify(users_array));
+            loadData();
+        })
+        .catch((error) => {
+            console.error("Error getting all users: ", error);
+        });
+
+}
+else {
+    if ((currentTime1 - usersStoredTime > expirationTime1)) {
+        console.log("over")
+        localStorage.setItem("usersStoredTime", new Date().getTime());
+
+        getAllusers()
+            .then((users_array) => {
+                localStorage.setItem("allusers", JSON.stringify(users_array));
+                loadData();
+            })
+            .catch((error) => {
+                console.error("Error getting all users: ", error);
+            });
+    }
+    else
+        loadData();
+}
+
+// --------------------------計時器----------------------------------------
+const expirationTime = 9999999 * 1000; // 毫秒
+const settingStoredTime = localStorage.getItem("settingStoredTime");
+const currentTime = new Date().getTime();
+const url = window.location.href.split('?')[1]
+if (settingStoredTime === null) {
+    console.log("設置");
+    localStorage.setItem("settingtStoredTime", new Date().getTime());
+
+    getAllsetting(url)
+        .then((setting_array) => {
+            localStorage.setItem("allsetting", JSON.stringify(setting_array));
+            loadData();
+        })
+        .catch((error) => {
+            console.error("Error getting all setting: ", error);
+        });
+
+}
+else {
+    if ((currentTime - settingStoredTime > expirationTime)) {
+        console.log("over")
+        localStorage.setItem("settingStoredTime", new Date().getTime());
+
+        getAllsetting(url)
+            .then((setting_array) => {
+                localStorage.setItem("allusers", JSON.stringify(users_array));
+                loadData();
+            })
+            .catch((error) => {
+                console.error("Error getting all setting: ", error);
+            });
+    }
+    else
+        loadData();
 }
