@@ -211,6 +211,62 @@ function loadData() {
         } 
         profile_Achievement_div.innerHTML = div_Achievement;
 
+        // --------------------------個人資料 閱讀書籍進度--------------------------
+        const reading_book_progress_profile_name_div = document.getElementById('reading_book_progress_profile_name');
+        let div_reading_book_progress_profile_name = "";
+        
 
+        if(reading_book_progress_profile_name_div){
+            for(let i = 0; i < allusers.length; i++){
+                if(window.location.href.split('?')[1] == allusers[i]["id"]){
+                    div_reading_book_progress_profile_name += `
+                    ${allusers[i]["content"]["name"]}
+                    `;
+                    break;
+                }
+            }
+            
+        } 
+        reading_book_progress_profile_name_div.innerHTML = div_reading_book_progress_profile_name;
+
+        // --------------------------個人資料 閱讀書籍進度--------------------------
+        const reading_book_progress_profile_picture_div = document.getElementById('reading_book_progress_profile_picture');
+        let div_reading_book_progress_profile_picture = "";
+        
+
+        if(reading_book_progress_profile_picture_div){
+            for(let i = 0; i < allusers.length; i++){
+                if(window.location.href.split('?')[1] == allusers[i]["id"]){
+                    div_reading_book_progress_profile_picture += `
+                    <img
+                    alt="alt text"
+                    class="w-12 h-auto aspect-[1] align-top object-cover rounded-full object-[center_center] relative min-w-[48px] mt-[3.5px] mx-0 mb-0"
+                    src="https://api.multiavatar.com/${allusers[i]["id"]}.svg"
+                    />
+                    `;
+                    break;
+                }
+            }
+            
+        } 
+        reading_book_progress_profile_picture_div.innerHTML = div_reading_book_progress_profile_picture;
+    
+        // --------------------------個人資料 閱讀書籍進度--------------------------
+        const reading_book_progress_profile_content_div = document.getElementById('reading_book_progress_profile_content');
+        let div_reading_book_progress_profile_content = "";
+        
+
+        if(reading_book_progress_profile_content_div){
+            for(let i = 0; i < allusers.length; i++){
+                if(window.location.href.split('?')[1] == allusers[i]["id"]){
+                    div_reading_book_progress_profile_content += `
+                    ${allusers[i]["content"]["name"]} 看了 鈴芽之旅 已觀看 46 %
+                    `;
+                    break;
+                }
+            }
+            
+        } 
+        reading_book_progress_profile_content_div.innerHTML = div_reading_book_progress_profile_content;
     });
 }
