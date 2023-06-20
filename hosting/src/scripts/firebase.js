@@ -202,7 +202,7 @@ function loadData() {
                                                         class="w-[38px] h-auto aspect-[1.19] align-top object-cover object-[center_center] relative min-w-[38px] my-[5px] mx-0"/>
                                                 </div>
                                                 <button type='button'
-                                                        class="flex items-center font-normal text-xs font-NotoSans text-black tracking-[0px] relative grow basis-[70px] min-h-[42px]" onclick="location.href='../Bookshelf/'">
+                                                        class="flex items-center font-normal text-xs font-NotoSans text-black tracking-[0px] relative grow basis-[70px] min-h-[42px]" onclick="location.href='../Bookshelf/?${window.location.href.split('?')[1]}'">
                                                     Bookshelf
                                                 </button>
                                             </div>
