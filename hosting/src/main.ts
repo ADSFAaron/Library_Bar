@@ -73,7 +73,8 @@ onAuthStateChanged(auth, async user => {
         return;
     }
     else{
-        window.location.assign(location.href='../pages/template/');
+        window.location.assign(location.href='../pages/template/?' + user['uid']);
+        
     }
 
     // console.log(user);

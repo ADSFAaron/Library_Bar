@@ -162,23 +162,17 @@ body {
     height: 200px;
 } */
 
-/* float 改變欄位排列 */
-.hlist li {
-    list-style-type:none;
-    float: left;
-    padding: 120px;
-}  
-
 body {
-    margin: 0;
+    margin: relative 2em 25%;
     background: #e5f6fd;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
-  
-    position: absolute;
+    align-items: center;
+    justify-content: center;
+    position: relative;
     height: auto;
     width: auto;
-    min-height: 800px;
+    /* min-height: 800px; */
   }
   
   #title {
@@ -193,6 +187,13 @@ body {
   
   #title:hover {
     color: #777;
+  }
+
+  /* float 改變欄位排列 */
+  .hlist li {
+    list-style-type:none;
+    float: left;
+    padding: 0 40px ;
   }
   
   #viewer.spreads {
@@ -246,7 +247,7 @@ body {
   
   @media (min-width: 1000px) {
     #viewer.spreads:after {
-      position: absolute;
+      position: relative;
       width: 1px;
       border-right: 1px #000 solid;
       height: 90%;
@@ -311,7 +312,7 @@ body {
     margin: 28px auto;
     background: #fff;
     border-radius: 0 5px 5px 0;
-    position: absolute;
+    position: relative;
   }
   
   #book-viewer {
@@ -328,7 +329,7 @@ body {
   }
   
   #controls {
-    position: absolute;
+    position: relative;
     bottom: 16px;
     left: 50%;
     width: 400px;
@@ -344,7 +345,7 @@ body {
   #navigation {
     width: 400px;
     height: 100vh;
-    position: absolute;
+    position: relative;
     overflow: auto;
     top: 0;
     left: 0;
@@ -412,7 +413,7 @@ body {
   }
   
   #navigation #closer {
-    position: absolute;
+    position: relative;
     top: 0;
     right: 0;
     padding: 12px;
@@ -442,7 +443,7 @@ body {
   }
   
   #opener {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     padding: 10px;

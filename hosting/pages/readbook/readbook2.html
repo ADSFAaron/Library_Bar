@@ -23,7 +23,7 @@
 <div id="container">
     <div id="menu">
         <ul class="hlist">
-            <li onclick="history.back()" >
+            <li onclick="history.back()">
                <img src="https://storage.googleapis.com/pxcode-pro/644d82b70649a2000afe5491/assets/edd97a69e4ff29abb1e297d02a622138.png"/>
             </li>
             <li>
@@ -91,9 +91,10 @@
     var currentSectionIndex = (params && params.get("loc")) ? params.get("loc") : undefined;
 
     // Load the opf
-    var book = ePub(url || "../../epub/鈴芽之旅.epub");
+    var book = ePub(url || "../../epub/大理寺後街的小食肆.epub");
     var rendition = book.renderTo("viewer", {
-      width: "100%", height: 750
+      width: "100%",
+      height: 600,
      //  spread: "always"
     });
 

@@ -16,6 +16,7 @@
     <script type="module" src="../../src/scripts/bootstrap.min.js"></script>
     <script type="module" src="../../src/scripts/jquery-3.6.4.min.js"></script>
     <script type="module" src="../../src/scripts/store.js"></script>
+    <script type="module" src="../../src/scripts/url_add_user_uid.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
@@ -32,50 +33,31 @@
 
 <body>
 
+    
     <aside class="sidebar">
-        
         <nav>
+            <button id="button_Search">
 
-            <button onclick="location.href='../Search/'">
-                <span>
-                    <img class="logo-img" src="../../img/search_FILL0_wght400_GRAD0_opsz48.svg" alt="Search Logo"/>
-                        <span>Search</span>
-                </span>
             </button>
 
-            <button onclick="location.href='../feed/'">
-                <span>
-                    <img class="logo-img" src="../../img/feed_FILL0_wght400_GRAD0_opsz48.svg" alt="Feed Logo"/>
-                        <span>Feed</span>
-                </span>
+            <button id="button_Feed">
+
             </button>
 
-            <button onclick="location.href='../store/'">
-                <span>
-                    <img class="logo-img" src="../../img/store_FILL0_wght400_GRAD0_opsz48.svg" alt="Store Logo"/>
-                        <span>Store</span>
-                </span>
+            <button id="button_Store">
+
             </button>
 
-            <button onclick="location.href='../Profile/'">
-                <span>
-                    <img class="logo-img" src="../../img/face_5_FILL0_wght400_GRAD0_opsz48.svg" alt="Profile Logo"/>
-                        <span>Profile</span>
-                </span>
+            <button id="button_Profile">
+
             </button>
 
-            <button onclick="location.href='../Bookshelf/'">
-                <span>
-                    <img class="logo-img" src="../../img/book_FILL0_wght400_GRAD0_opsz48.svg" alt="Bookshelf Logo"/>
-                        <span>Bookshelf</span>
-                </span>
+            <button id="button_Bookshelf">
+                
             </button>
-            <!--  -->
-            <button onclick="location.href='../Settings/'">
-                <span>
-                    <img class="logo-img" src="../../img/tune_FILL0_wght400_GRAD0_opsz48.svg" alt="Settings Logo"/>
-                        <span>Settings</span>
-                </span>
+
+            <button id="button_Seeting">
+                
             </button>
         </nav>
     </aside>
@@ -112,14 +94,15 @@
             <div class="flex flex-row gap-4">
                 <div>
                     <img
-                      src="https://storage.googleapis.com/pxcode-pro/644d82b70649a2000afe5491/assets/8b8a920c3d37a86d2cebb867d3453fcc.png"
+                      src="https://i.pravatar.cc/1962"
                       alt="alt text"
+                      class="rounded-full w-20 h-auto"
                     />
                 </div>
                 <div class="flex-1 w-64 ">
                     <div class="grid grid-cols-1 col-start-2 place-items-start content-end items-center m-2">
                         <div class="text-lg">
-                            王曉明
+                            Blair
                         </div>
                         <div class="text-sm">
                             2021/10/10
@@ -130,7 +113,7 @@
             </div>
             <div class="flex flex-row gap-4">
                 <div class="ml-20 flex-1 w-64 text-base col-span-2">
-                    王曉明看了 鈴芽之旅 已觀看 50 %
+                    Blair 看了 鈴芽之旅 已觀看 50 %
                 </div>
             </div>
             <div class="bg-[#7EB3BF] rounded-lg col-span-2 grid grid-cols-3 gap-4 px-6 py-4 ml-20">
@@ -183,13 +166,13 @@
                 <div class="flex flex-row gap-4 ml-4">
                     <div>
                         <img
-                          src="https://storage.googleapis.com/pxcode-pro/644d82b70649a2000afe5491/assets/8b8a920c3d37a86d2cebb867d3453fcc.png"
+                          src="https://i.pravatar.cc/1747"
                           alt="alt text"
-                          class="w-6 h-6"
+                          class="w-6 h-6 rounded-full"
                         />
                     </div>
                     <div class="text-sm">
-                        李大華 : 哇~ 太酷了吧！
+                        Hadley: 哇~ 太酷了吧！
                     </div>
                     <button onclick=" window.open('https://www.instagram.com/','_blank')" class="material-symbols-outlined h-3 w-3">
                         reply
