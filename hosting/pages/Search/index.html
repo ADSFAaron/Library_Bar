@@ -12,6 +12,7 @@
     <script type="module" src="../../src/scripts/bootstrap.min.js"></script>
     <script type="module" src="../../src/scripts/jquery-3.6.4.min.js"></script>
     <script type="module" src="../../src/scripts/store.js"></script>
+    <script type="module" src="../../src/scripts/url_add_user_uid.js"></script>
 
     <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
@@ -27,56 +28,37 @@
 </head>
 
 <body>
+    
     <aside class="sidebar">
-        
         <nav>
+            <button id="button_Search">
 
-            <button onclick="location.href='../Search/'">
-                <span>
-                    <img class="logo-img" src="../../img/search_FILL0_wght400_GRAD0_opsz48.svg" alt="Search Logo"/>
-                        <span>Search</span>
-                </span>
             </button>
 
-            <button onclick="location.href='../feed/'">
-                <span>
-                    <img class="logo-img" src="../../img/feed_FILL0_wght400_GRAD0_opsz48.svg" alt="Feed Logo"/>
-                        <span>Feed</span>
-                </span>
+            <button id="button_Feed">
+
             </button>
 
-            <button onclick="location.href='../store/'">
-                <span>
-                    <img class="logo-img" src="../../img/store_FILL0_wght400_GRAD0_opsz48.svg" alt="Store Logo"/>
-                        <span>Store</span>
-                </span>
+            <button id="button_Store">
+
             </button>
 
-            <button onclick="location.href='../Profile/'">
-                <span>
-                    <img class="logo-img" src="../../img/face_5_FILL0_wght400_GRAD0_opsz48.svg" alt="Profile Logo"/>
-                        <span>Profile</span>
-                </span>
+            <button id="button_Profile">
+
             </button>
 
-            <button onclick="location.href='../Bookshelf/'">
-                <span>
-                    <img class="logo-img" src="../../img/book_FILL0_wght400_GRAD0_opsz48.svg" alt="Bookshelf Logo"/>
-                        <span>Bookshelf</span>
-                </span>
+            <button id="button_Bookshelf">
+                
             </button>
-            <!--  -->
-            <button onclick="location.href='../Settings/'">
-                <span>
-                    <img class="logo-img" src="../../img/tune_FILL0_wght400_GRAD0_opsz48.svg" alt="Settings Logo"/>
-                        <span>Settings</span>
-                </span>
+
+            <button id="button_Seeting">
+                
             </button>
         </nav>
     </aside>
 
 
-<div class="container-body">
+    <div class="container-body">
         <div class="">
             <font size="6">搜尋 : 鈴芽之旅 結果</font><br>
             <p>約有 20 筆 相關資料</p>
@@ -87,42 +69,42 @@
 
     <div class="row">
         <div class="col-sm">
-            <div class="store-ranking-content">
+            <div class="object-contain rounded-md w-full md:w-4/5">
                 <img src="https://cdn.shopify.com/s/files/1/0613/7030/2681/products/212206efffac7d87f8d2a9dc50933b82_473x637.png?v=1672105246">
                 <span class="store-ranking-conten-span">鈴芽之旅</span>
                 <p>新海城</p>
             </div>
         </div>
         <div class="col-sm">
-            <div class="store-ranking-content">
+            <div class="object-contain rounded-md w-full md:w-4/5">
                 <img src="https://cdn.shopify.com/s/files/1/0613/7030/2681/products/212206efffac7d87f8d2a9dc50933b82_473x637.png?v=1672105246">
                 <span class="store-ranking-conten-span">鈴芽之旅</span>
                 <p>新海城</p>
             </div>
         </div>
         <div class="col-sm">
-            <div class="store-ranking-content">
+            <div class="object-contain rounded-md w-full md:w-4/5">
                 <img src="https://cdn.shopify.com/s/files/1/0613/7030/2681/products/212206efffac7d87f8d2a9dc50933b82_473x637.png?v=1672105246">
                 <span class="store-ranking-conten-span">鈴芽之旅</span>
                 <p>新海城</p>
             </div>
         </div>
         <div class="col-sm">
-            <div class="store-ranking-content">
+            <div class="object-contain rounded-md w-full md:w-4/5">
                 <img src="https://cdn.shopify.com/s/files/1/0613/7030/2681/products/212206efffac7d87f8d2a9dc50933b82_473x637.png?v=1672105246">
                 <span class="store-ranking-conten-span">鈴芽之旅</span>
                 <p>新海城</p>
             </div>
         </div>
         <div class="col-sm">
-            <div class="store-ranking-content">
+            <div class="object-contain rounded-md w-full md:w-4/5">
                 <img src="https://cdn.shopify.com/s/files/1/0613/7030/2681/products/212206efffac7d87f8d2a9dc50933b82_473x637.png?v=1672105246">
                 <span class="store-ranking-conten-span">鈴芽之旅</span>
                 <p>新海城</p>
             </div>
         </div>
         <div class="col-sm">
-            <div class="store-ranking-content">
+            <div class="object-contain rounded-md w-full md:w-4/5">
                 <img src="https://cdn.shopify.com/s/files/1/0613/7030/2681/products/212206efffac7d87f8d2a9dc50933b82_473x637.png?v=1672105246">
                 <span class="store-ranking-conten-span">鈴芽之旅</span>
                 <p>新海城</p>
@@ -135,28 +117,28 @@
 
     <div class="row row-cols-6" style="margin-top: 20px;">
         <div class="col">
-            <img src="../../img/Avatar.png">
-            <span class="store-ranking-conten-span">王曉明</span>
+            <img src="https://thispersondoesnotexist.com/" class="rounded-full">
+            <span class="store-ranking-conten-span">Phoenix </span>
         </div>
         <div class="col">
-            <img src="../../img/Avatar.png">
-            <span class="store-ranking-conten-span">王曉明</span>
+            <img src="https://i.pravatar.cc/915" class="rounded-full">
+            <span class="store-ranking-conten-span">Reese</span>
         </div>
         <div class="col">
-            <img src="../../img/Avatar.png">
-            <span class="store-ranking-conten-span">王曉明</span>
+            <img src="https://i.pravatar.cc/965" class="rounded-full">
+            <span class="store-ranking-conten-span">Hollis</span>
         </div>
         <div class="col">
-            <img src="../../img/Avatar.png">
-            <span class="store-ranking-conten-span">王曉明</span>
+            <img src="https://i.pravatar.cc/984" class="rounded-full">
+            <span class="store-ranking-conten-span">Camille</span>
         </div>
         <div class="col">
-            <img src="../../img/Avatar.png">
-            <span class="store-ranking-conten-span">王曉明</span>
+            <img src="https://i.pravatar.cc/957" class="rounded-full">
+            <span class="store-ranking-conten-span">Emerson</span>
         </div>
         <div class="col">
-            <img src="../../img/Avatar.png">
-            <span class="store-ranking-conten-span">王曉明</span>
+            <img src="https://i.pravatar.cc/943" class="rounded-full">
+            <span class="store-ranking-conten-span">Lucky</span>
         </div>
     </div>
 </div>
@@ -165,4 +147,3 @@
 </body>
 
 </html>
-

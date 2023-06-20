@@ -15,8 +15,9 @@
     <script type="module" src="../../src/scripts/popper.min.js"></script>
     <script type="module" src="../../src/scripts/bootstrap.min.js"></script>
     <script type="module" src="../../src/scripts/jquery-3.6.4.min.js"></script>
-    <script type="module" src="../../src/scripts/store.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="../../src/scripts/url_add_user_uid.js"></script>
+    
 
     <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
@@ -31,93 +32,57 @@
 </head>
 
 <body>
-
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-firestore.js"></script>
+  <script src="../../src/scripts/firebase_setting.js"></script>
+    
     <aside class="sidebar">
-        
         <nav>
+            <button id="button_Search">
 
-            <button onclick="location.href='../Search/'">
-                <span>
-                    <img class="logo-img" src="../../img/search_FILL0_wght400_GRAD0_opsz48.svg" alt="Search Logo"/>
-                        <span>Search</span>
-                </span>
             </button>
 
-            <button onclick="location.href='../feed/'">
-                <span>
-                    <img class="logo-img" src="../../img/feed_FILL0_wght400_GRAD0_opsz48.svg" alt="Feed Logo"/>
-                        <span>Feed</span>
-                </span>
+            <button id="button_Feed">
+
             </button>
 
-            <button onclick="location.href='../store/'">
-                <span>
-                    <img class="logo-img" src="../../img/store_FILL0_wght400_GRAD0_opsz48.svg" alt="Store Logo"/>
-                        <span>Store</span>
-                </span>
+            <button id="button_Store">
+
             </button>
 
-            <button onclick="location.href='../Profile/'">
-                <span>
-                    <img class="logo-img" src="../../img/face_5_FILL0_wght400_GRAD0_opsz48.svg" alt="Profile Logo"/>
-                        <span>Profile</span>
-                </span>
+            <button id="button_Profile">
+
             </button>
 
-            <button onclick="location.href='../Bookshelf/'">
-                <span>
-                    <img class="logo-img" src="../../img/book_FILL0_wght400_GRAD0_opsz48.svg" alt="Bookshelf Logo"/>
-                        <span>Bookshelf</span>
-                </span>
+            <button id="button_Bookshelf">
+                
             </button>
-            <!--  -->
-            <button onclick="location.href='../Settings/'">
-                <span>
-                    <img class="logo-img" src="../../img/tune_FILL0_wght400_GRAD0_opsz48.svg" alt="Settings Logo"/>
-                        <span>Settings</span>
-                </span>
+
+            <button id="button_Seeting">
+                
             </button>
         </nav>
     </aside>
 
 <!-- 網頁右側內容 -->
-<div class="main">
-        <div style="font-size: 40px; margin-bottom: 30px;">
-            <span>設定</span>
-        </div>
-        <hr>
-        <div style="margin-top: 10px;">
-          <span>閱讀速度</span>
-          <span style="font-size: 20px;">(判斷有效閱讀時間用)</span>
-          <select style="float: right;">
-            <option>快</option>
-            <option>中</option>
-            <option>慢</option>
-        </select>
-        </div>
-        <div style="margin-top: 10px;">
-            <span>字型</span>
-            <select style="float: right;">
-              <option>標楷體</option>
-              <option>新細明體</option>
-              <option>Times New Roman</option>
-          </select>
-        </div>
-        <div style="margin-top: 10px;">
-          <span>字體顏色</span>
-          <select style="float: right;">
-            <option>黑</option>
-            <option>白</option>
-        </select>
-        </div>
-        <div style="margin-top: 10px;">
-          <span>背景顏色</span>
-          <select style="float: right;">
-            <option>亮色</option>
-            <option>暗色</option>
-        </select>
-        </div>
-</div>
+    <div class="ml-[290px] mt-[20px] mr-[40px] text-[28px]">
+            <div class="text-[40px] mb-[30px]">
+                <span>設定</span>
+            </div>
+            <hr>
+            <div id="setting_speed">
+              <!-- setting_speed -->
+            </div>
+            <div id="setting_fontfamily">
+                
+            </div>
+            <div id="setting_font">
+              
+            </div>
+            <div id="setting_background">
+              
+            </div>
+    </div>
 
 
 </body>
