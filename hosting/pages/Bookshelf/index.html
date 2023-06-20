@@ -12,6 +12,7 @@
     <script type="module" src="../../src/scripts/bootstrap.min.js"></script>
     <script type="module" src="../../src/scripts/jquery-3.6.4.min.js"></script>
     <script type="module" src="../../src/scripts/store.js"></script>
+    <script type="module" src="../../src/scripts/url_add_user_uid.js"></script>
 
     <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
@@ -29,54 +30,34 @@
 <body>
     
     <aside class="sidebar">
-        
         <nav>
+            <button id="button_Search">
 
-            <button onclick="location.href='../Search/'">
-                <span>
-                    <img class="logo-img" src="../../img/search_FILL0_wght400_GRAD0_opsz48.svg" alt="Search Logo"/>
-                        <span>Search</span>
-                </span>
             </button>
 
-            <button onclick="location.href='../feed/'">
-                <span>
-                    <img class="logo-img" src="../../img/feed_FILL0_wght400_GRAD0_opsz48.svg" alt="Feed Logo"/>
-                        <span>Feed</span>
-                </span>
+            <button id="button_Feed">
+
             </button>
 
-            <button onclick="location.href='../store/'">
-                <span>
-                    <img class="logo-img" src="../../img/store_FILL0_wght400_GRAD0_opsz48.svg" alt="Store Logo"/>
-                        <span>Store</span>
-                </span>
+            <button id="button_Store">
+
             </button>
 
-            <button onclick="location.href='../Profile/'">
-                <span>
-                    <img class="logo-img" src="../../img/face_5_FILL0_wght400_GRAD0_opsz48.svg" alt="Profile Logo"/>
-                        <span>Profile</span>
-                </span>
+            <button id="button_Profile">
+
             </button>
 
-            <button onclick="location.href='../Bookshelf/'">
-                <span>
-                    <img class="logo-img" src="../../img/book_FILL0_wght400_GRAD0_opsz48.svg" alt="Bookshelf Logo"/>
-                        <span>Bookshelf</span>
-                </span>
+            <button id="button_Bookshelf">
+                
             </button>
-            <!--  -->
-            <button onclick="location.href='../Settings/'">
-                <span>
-                    <img class="logo-img" src="../../img/tune_FILL0_wght400_GRAD0_opsz48.svg" alt="Settings Logo"/>
-                        <span>Settings</span>
-                </span>
+
+            <button id="button_Seeting">
+                
             </button>
         </nav>
     </aside>
 
-    <div class="flex flex-col w-[44.65%] relative grow mt-10 mr-[21.81%] mb-[210px] ml-[33.54%]">
+    <!-- <div class="flex flex-col w-[44.65%] relative grow mt-10 mr-[21.81%] mb-[210px] ml-[33.54%]">
         <div class="flex flex-col relative">
             <h1 class="flex items-center font-normal text-[48px] leading-[1.35] font-NotoSans text-black tracking-[0px] relative grow min-h-[232px]">
                 Bookshelf
@@ -117,7 +98,150 @@
                 </div>
             </div>
         </div>
-    </div>           
+    </div>         -->
+
+<div class="flex-col w-[50%] grow mt-10 ml-[30%]">
+    <div class="flex flex-col relative">
+        <h1 class="flex items-center font-normal text-[48px] leading-[1.35] font-NotoSans text-black tracking-[0px] relative grow min-h-[232px]">
+            Bookshelf
+        </h1>
+        <h2 class="flex items-center font-normal text-[24px] leading-[1.37] font-NotoSans text-[rgb(122,122,122)] tracking-[0px] w-[117px] h-auto absolute bottom-[41px] left-0">
+            4 / 10 本書
+        </h2>
+    </div>
+    <!-- 第 1 本 -->
+    <div class="flex-col w-[100%]">
+        <div class="flex-col bg-cyan-200 rounded-3xl w-[90%] mt-[5%]">
+            <div class="flex items-center relative grow mt-7 mr-[19px] mb-4 ml-6">
+                <div class="flex flex-col relative basis-[172px]">
+                    <img 
+                        src="https://cdn.shopify.com/s/files/1/0613/7030/2681/products/212206efffac7d87f8d2a9dc50933b82_473x637.png?v=1672105246" 
+                        alt="alt text" 
+                        class="rounded-3xl w-[calc(100%_-_0px)] h-auto aspect-[0.69] align-top object-cover object-[center_center]"/>
+                </div>
+                <div class="basis-[29px]"></div>
+                    <div class="flex flex-col relative basis-[429px]">
+                        <div class="flex flex-col relative mt-0 mr-[19px] mb-0 ml-0">
+                            <div class="flex flex-col relative mt-0 mr-[31px] mb-0 ml-[3px]">
+                                <h2 class="flex items-center font-medium text-[24px] leading-[1.37] font-NotoSans text-black tracking-[0px] relative min-h-[62px]">
+                                    鈴芽之旅
+                                </h2>
+                                <p class="flex items-center font-medium text-x font-NotoSans text-black tracking-[0px] absolute top-[93px]">
+                                    86 / 324 頁
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col bg-white rounded-[15.75px] w-[29.84%] relative mt-6 mr-0 mb-0 ml-[70.16%]">
+                            <button onclick="location.href='../readbook/readbook1.html'" 
+                                    id="readbook1"
+                                    class="flex items-center justify-center font-medium text-[14px] leading-[1.35] font-NotoSans text-black text-center tracking-[0px] relative grow min-h-[23px] my-1 mx-6">
+                                閱讀
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- 第 2 本 -->
+    <div class="flex-col w-[100%]">
+        <div class="flex-col bg-orange-200  rounded-3xl w-[90%] mt-[5%]">
+            <div class="flex items-center relative grow mt-7 mr-[19px] mb-4 ml-6">
+                <div class="flex flex-col relative basis-[172px]">
+                    <img 
+                        src="https://cf.hk1.file.couqiao.net/2022/10/30/635e84edba62f.jpg" 
+                        alt="alt text" 
+                        class="rounded-3xl w-[calc(100%_-_0px)] h-auto aspect-[0.69] align-top object-cover object-[center_center]"/>
+                </div>
+                <div class="basis-[29px]"></div>
+                    <div class="flex flex-col relative basis-[429px]">
+                        <div class="flex flex-col relative mt-0 mr-[19px] mb-0 ml-0">
+                            <div class="flex flex-col relative mt-0 mr-[31px] mb-0 ml-[3px]">
+                                <h2 class="flex items-center font-medium text-[24px] leading-[1.37] font-NotoSans text-black tracking-[0px] relative min-h-[62px]">
+                                    大理寺後街的小食肆
+                                </h2>
+                                <p class="flex items-center font-medium text-x font-NotoSans text-black tracking-[0px] absolute top-[93px]">
+                                    65 / 654 頁
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col bg-white rounded-[15.75px] w-[29.84%] relative mt-6 mr-0 mb-0 ml-[70.16%]">
+                            <button onclick="location.href='../readbook/readbook2.html'" 
+                                    id="readbook2"
+                                    class="flex items-center justify-center font-medium text-[14px] leading-[1.35] font-NotoSans text-black text-center tracking-[0px] relative grow min-h-[23px] my-1 mx-6">
+                                閱讀
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- 第 3 本 -->
+    <div class="flex-col w-[100%]">
+        <div class="flex-col bg-green-200  rounded-3xl w-[90%] mt-[5%]">
+            <div class="flex items-center relative grow mt-7 mr-[19px] mb-4 ml-6">
+                <div class="flex flex-col relative basis-[172px]">
+                    <img 
+                        src="https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/093/39/0010933963.jpg&v=62fe14e7k&w=1401&h=1401" 
+                        alt="alt text" 
+                        class="rounded-3xl w-[calc(100%_-_0px)] h-auto aspect-[0.69] align-top object-cover object-[center_center]"/>
+                </div>
+                <div class="basis-[29px]"></div>
+                    <div class="flex flex-col relative basis-[429px]">
+                        <div class="flex flex-col relative mt-0 mr-[19px] mb-0 ml-0">
+                            <div class="flex flex-col relative mt-0 mr-[31px] mb-0 ml-[3px]">
+                                <h2 class="flex items-center font-medium text-[24px] leading-[1.37] font-NotoSans text-black tracking-[0px] relative min-h-[62px]">
+                                    兒子的男朋友
+                                </h2>
+                                <p class="flex items-center font-medium text-x font-NotoSans text-black tracking-[0px] absolute top-[93px]">
+                                    43 / 304 頁
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col bg-white rounded-[15.75px] w-[29.84%] relative mt-6 mr-0 mb-0 ml-[70.16%]">
+                            <button onclick="location.href='../readbook/readbook3.html'" 
+                                    id="readbook3"
+                                    class="flex items-center justify-center font-medium text-[14px] leading-[1.35] font-NotoSans text-black text-center tracking-[0px] relative grow min-h-[23px] my-1 mx-6">
+                                閱讀
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- 第 4 本 -->
+    <div class="flex-col w-[100%]">
+        <div class="flex-col bg-stone-200  rounded-3xl w-[90%] mt-[5%]">
+            <div class="flex items-center relative grow mt-7 mr-[19px] mb-4 ml-6">
+                <div class="flex flex-col relative basis-[172px]">
+                    <img 
+                        src="https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/20/0010922040.jpg?v=625554d0k" 
+                        alt="alt text" 
+                        class="rounded-3xl w-[calc(100%_-_0px)] h-auto aspect-[0.69] align-top object-cover object-[center_center]"/>
+                </div>
+                <div class="basis-[29px]"></div>
+                    <div class="flex flex-col relative basis-[429px]">
+                        <div class="flex flex-col relative mt-0 mr-[19px] mb-0 ml-0">
+                            <div class="flex flex-col relative mt-0 mr-[31px] mb-0 ml-[3px]">
+                                <h2 class="flex items-center font-medium text-[24px] leading-[1.37] font-NotoSans text-black tracking-[0px] relative min-h-[62px]">
+                                    白魔之塔
+                                </h2>
+                                <p class="flex items-center font-medium text-x font-NotoSans text-black tracking-[0px] absolute top-[93px]">
+                                    122 / 432 頁
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col bg-white rounded-[15.75px] w-[29.84%] relative mt-6 mr-0 mb-0 ml-[70.16%]">
+                            <button onclick="location.href='../readbook/readbook4.html'" 
+                                    id="readbook4"
+                                    class="flex items-center justify-center font-medium text-[14px] leading-[1.35] font-NotoSans text-black text-center tracking-[0px] relative grow min-h-[23px] my-1 mx-6">
+                                閱讀
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>  
+</div> 
 
 </body>
 
