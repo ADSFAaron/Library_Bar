@@ -12,29 +12,6 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-function getAllBooks() {
-    return new Promise((resolve, reject) => {
-        const book_array = [];
-        firebase.firestore()
-            .collection("books")
-            .get()
-            .then((querySnapshot) => {
-                querySnapshot.forEach((doc) => {
-                    const books = {
-                        id: doc.id,
-                        content: doc.data(),
-                    };
-                    book_array.push(books);
-                });
-                resolve(book_array);
-            })
-            .catch((error) => {
-                console.error("Error getting documents: ", error);
-                reject(error);
-            });        
-    });
-}
-
 function getAllusers() {
     return new Promise((resolve, reject) => {
         const users_array = [];
@@ -102,115 +79,89 @@ else {
 function loadData() {
     const allusers = JSON.parse(localStorage.getItem("allusers"));
     const allbooks = JSON.parse(localStorage.getItem("allbooks"));
-    console.log(allusers);
+    let user_index = null;
+    for(let i = 0; i < allusers.length; i++){
+        if(window.location.href.split('?')[1] == allusers[i]["id"]){
+            user_index = i;
+            break;
+        }
+    } 
     window.addEventListener('load', (event) => {
-        // --------------------------個人頭像-------------------------------
         const profile_picture_div = document.getElementById('profile_picture');
-        let profile_picture_name = "";
-    
-
-        if(profile_picture_div){
-            for(let i = 0; i < allusers.length; i++){
-                if(window.location.href.split('?')[1] == allusers[i]["id"]){
-                    profile_picture_name += `
-                    <img
-                    alt="alt text"
-                    class="w-[calc(100%_-_12px)] h-auto aspect-[1] align-top rounded-full object-cover object-[center_center] relative mt-0 mr-3 mb-0 ml-0"
-                    src="https://api.multiavatar.com/${allusers[i]["id"]}.svg"
-                    />
-                    `;
-                    console.log(allusers[i]["id"]); 
-                    break;
-                }
-            }
-            
-        } 
-        profile_picture_div.innerHTML = profile_picture_name;
-        // --------------------------個人資料 name--------------------------
         const profile_name_div = document.getElementById('profile_name');
-        let div_name = "";
-    
-
-        if(profile_name_div){
-            for(let i = 0; i < allusers.length; i++){
-                if(window.location.href.split('?')[1] == allusers[i]["id"]){
-                    div_name += `
-                    <div
-                    class="flex items-center justify-center font-normal text-[24px] leading-[1.37] font-NotoSans text-black text-center tracking-[0px] relative min-h-[49px] mt-0 mr-[39px] mb-0 ml-2"
-                    >
-                        <p>${allusers[i]["content"]["name"]}</p>
-                    </div>`;
-                    console.log(allusers[i]["content"]["name"]); 
-                    break;
-                }
-            }
-            
-        } 
-        profile_name_div.innerHTML = div_name;
-        // --------------------------個人資料 觀看時間--------------------------
         const profile_watchtime_div = document.getElementById('profile_watchtime');
-        let div_watchtime = "";
+        const profile_watchbook_div = document.getElementById('profile_watchtbook');
+        const profile_Achievement_div = document.getElementById('profile_achievement');
+        const reading_book_progress_profile_name_div = document.getElementById('reading_book_progress_profile_name');
+        const reading_book_progress_profile_picture_div = document.getElementById('reading_book_progress_profile_picture');
+        const reading_book_progress_profile_content_div = document.getElementById('reading_book_progress_profile_content');
+        let temp = "";
 
-        if(profile_watchtime_div){
-            for(let i = 0; i < allusers.length; i++){
-                if(window.location.href.split('?')[1] == allusers[i]["id"]){
-                    div_watchtime += `
-                    <div
-                    class="flex items-center font-normal text-[24px] leading-[1.37] font-NotoSans text-white tracking-[0px] relative grow basis-[136px] min-h-[57px]"
-                    >
-                        <p>${allusers[i]["content"]["totalReadtime"]} 分</p>
-                    </div>`;
-                    console.log(allusers[i]["content"]["totalReadtime"]); 
-                    break;
-                }
-            }
-            
-        } 
-        profile_watchtime_div.innerHTML = div_watchtime;
+        // --------------------------個人資料 閱讀書籍進度 個人名字--------------------------
+        temp = `
+        <h3 class="flex items-center font-normal text-[21px] leading-[1.38] font-NotoSans text-black tracking-[0px] relative">
+            ${allusers[user_index]["content"]["name"]}
+        </h3>
+        `;
+        reading_book_progress_profile_name_div.innerHTML = temp;
+
+        // --------------------------個人資料 閱讀書籍進度 個人頭像--------------------------
+        temp = `
+        <div class="flex flex-col relative basis-12">
+            <img
+            alt="alt text"
+            class="w-12 h-auto aspect-[1] align-top object-cover rounded-full object-[center_center] relative min-w-[48px] mt-[3.5px] mx-0 mb-0"
+            src="https://api.multiavatar.com/${allusers[user_index]["id"]}.svg"
+            />
+        </div>
+        `;
+        reading_book_progress_profile_picture_div.innerHTML = temp;
+    
+        // --------------------------個人資料 閱讀書籍進度 個人消息內容--------------------------        
+        temp = `
+        <h3 class="flex items-center justify-start font-normal text-[21px] leading-[1.38] font-NotoSans text-black text-right tracking-[0px] relative mt-[23px] mx-0 mb-0">
+            ${allusers[user_index]["content"]["name"]} 看了 鈴芽之旅 已觀看 46 %
+        </h3>
+        `; 
+        reading_book_progress_profile_content_div.innerHTML = temp;
+
+        // --------------------------個人頭像-------------------------------
+        temp = `
+        <img
+            alt="alt text"
+            class="w-[calc(100%_-_12px)] h-auto aspect-[1] align-top rounded-full object-cover object-[center_center] relative mt-0 mr-3 mb-0 ml-0"
+            src="https://api.multiavatar.com/${allusers[user_index]["id"]}.svg"
+        />
+        `;
+        profile_picture_div.innerHTML = temp;
+        
+        // --------------------------個人資料 name--------------------------
+        temp = `
+        <div class="flex items-center justify-center font-normal text-[24px] leading-[1.37] font-NotoSans text-black text-center tracking-[0px] relative min-h-[49px] mt-0 mr-[39px] mb-0 ml-2">
+            <p>${allusers[user_index]["content"]["name"]}</p>
+        </div>`;
+        profile_name_div.innerHTML = temp;
+
+        // --------------------------個人資料 觀看時間--------------------------
+        temp = `
+        <div class="flex items-center font-normal text-[24px] leading-[1.37] font-NotoSans text-white tracking-[0px] relative grow basis-[136px] min-h-[57px]">
+            <p>${allusers[user_index]["content"]["totalReadtime"]} 分</p>
+        </div>`;
+        profile_watchtime_div.innerHTML = temp;
 
         // --------------------------個人資料 觀看書籍--------------------------
-        const profile_watchbook_div = document.getElementById('profile_watchtbook');
-        let div_watchbook = "";
+        temp = `
+        <div class="flex items-center font-normal text-[24px] leading-[1.37] font-NotoSans text-[rgb(70,70,70)] tracking-[0px] relative grow basis-[136px] min-h-[57px]">
+            <p>${allusers[user_index]["content"]["totalReadbooks"]} / ${allbooks.length} 本</p>
+        </div>`;            
+        profile_watchbook_div.innerHTML = temp;
 
-        if(profile_watchbook_div){
-            for(let i = 0; i < allusers.length; i++){
-                if(window.location.href.split('?')[1] == allusers[i]["id"]){
-                    div_watchbook += `
-                    <div
-                    class="flex items-center font-normal text-[24px] leading-[1.37] font-NotoSans text-[rgb(70,70,70)] tracking-[0px] relative grow basis-[136px] min-h-[57px]"
-                    >
-                        <p>${allusers[i]["content"]["totalReadbooks"]} / ${allbooks.length} 本</p>
-                    </div>`;
-                    console.log(allusers[i]["content"]["totalReadbooks"]); 
-                    break;
-                }
-            }
-            
-        } 
-        profile_watchbook_div.innerHTML = div_watchbook;
-
-        // --------------------------個人資料 成就--------------------------
-        const profile_Achievement_div = document.getElementById('profile_achievement');
-        let div_Achievement = "";
-        
-
-        if(profile_Achievement_div){
-            for(let i = 0; i < allusers.length; i++){
-                if(window.location.href.split('?')[1] == allusers[i]["id"]){
-                    div_Achievement += `
-                    <div
-                    class="flex items-center font-normal text-[24px] leading-[1.37] font-NotoSans text-[rgb(70,70,70)] tracking-[0px] relative grow basis-[136px] min-h-[57px]"
-                    >
-                        <p>${allusers[i]["content"]["achievement"].length} / 10 個</p>
-                    </div>`;
-                    console.log(allusers[i]["content"]["achievement"].length); 
-                    break;
-                }
-            }
-            
-        } 
-        profile_Achievement_div.innerHTML = div_Achievement;
-
-
+        // --------------------------個人資料 成就--------------------------        
+        temp = `
+        <div class="flex items-center font-normal text-[24px] leading-[1.37] font-NotoSans text-[rgb(70,70,70)] tracking-[0px] relative grow basis-[136px] min-h-[57px]">
+            <p>${allusers[user_index]["content"]["achievement"].length} / 10 個</p>
+        </div>`;
+        console.log(allusers[user_index]["content"]["achievement"].length); 
+        profile_Achievement_div.innerHTML = temp;
     });
 }
